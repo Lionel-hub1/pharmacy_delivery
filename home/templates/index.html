@@ -1,161 +1,765 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medicare</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <nav class="bg-[#F6F7F8] mx-5 my-3 rounded-lg px-10 py-3 flex flex-row justify-between">
-        <div class="flex flex-row">
-            <!-- brand -->
-            <div class="flex flex-row items-center text-[#16350E] space-x-4">
-                <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
-                    viewBox="0 0 491.607 491.607" xml:space="preserve" fill="#000000">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <g>
-                            <g>
-                                <path style="fill:#16350E;"
-                                    d="M338.686,126.731V77.156c0-0.658-0.623-1.282-1.282-1.282H153.948 c-0.658,0-1.282,0.623-1.282,1.282v49.575h-38.448V77.156c0-21.908,17.822-39.73,39.73-39.73h183.457 c21.908,0,39.73,17.822,39.73,39.73v49.575H338.686z">
-                                </path>
-                            </g>
-                            <path style="fill:#9EE06E;"
-                                d="M475.607,454.181H16.255c-8.8,0-16-7.2-16-16V132.915c0-8.8,7.2-16,16-16h459.352 c8.8,0,16,7.2,16,16v305.266C491.607,446.981,484.407,454.181,475.607,454.181z">
-                            </path>
-                            <circle style="fill:#16350E;" cx="245.931" cy="285.548" r="106.675"></circle>
-                            <polygon style="fill:#FF3069;"
-                                points="312.58,267.455 264.024,267.455 264.024,218.9 227.839,218.9 227.839,267.455 179.283,267.455 179.283,303.641 227.839,303.641 227.839,352.197 264.024,352.197 264.024,303.641 312.58,303.641 ">
-                            </polygon>
-                            <path style="fill:#16350E;"
-                                d="M491.607,438.181V382.32h-3.76l0,0c-39.088,0-70.774,31.687-70.774,70.775v0v1.086h58.534 C484.407,454.181,491.607,446.981,491.607,438.181z">
-                            </path>
-                            <path style="fill:#16350E;"
-                                d="M487.553,187.69L487.553,187.69h4.054v-54.775c0-8.8-7.2-16-16-16h-58.829v0 C416.778,156.003,448.465,187.69,487.553,187.69z">
-                            </path>
-                            <path style="fill:#16350E;"
-                                d="M0.55,187.69c39.088,0,70.774-31.687,70.774-70.775v0H16.255c-8.8,0-16,7.2-16,16v51.462 L0.55,187.69L0.55,187.69z">
-                            </path>
-                            <path style="fill:#16350E;"
-                                d="M71.03,453.094L71.03,453.094c0-39.088-31.687-70.775-70.774-70.775l0,0v55.861c0,8.8,7.2,16,16,16 h55.069v-1.087L71.03,453.094z">
-                            </path>
-                            <rect x="114.218" y="97.653" style="fill:#16350E;" width="38.448" height="19.263"></rect>
-                            <rect x="338.686" y="97.653" style="fill:#16350E;" width="38.448" height="19.263"></rect>
-                            <path style="opacity:0.2;fill:#16350E;"
-                                d="M475.352,116.915h-39.751v270.848c0,8.8-7.2,16-16,16H0v34.418c0,8.8,7.2,16,16,16 h459.352c8.8,0,16-7.2,16-16V132.915C491.352,124.115,484.152,116.915,475.352,116.915z">
-                            </path>
-                        </g>
-                    </g>
-                </svg>
-                <p class="text-3xl font-black">Medicare</p>
-            </div>
-            <!-- select location -->
-            <div class="border border-gray-300 border-r-[2px] mx-3">
-                
-            </div>
-            <div class="flex flex-col">
-                <span class="flex flex-row text-gray-500 font-semibold">
-                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z"
-                                stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                                stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                    Select Location
-                </span>
-                <select name="" id="" class="text-[#16350E] text-right font-bold bg-transparent">
-                    <option value="">Nyarugenge</option>
-                    <option value="">Kicukiro</option>
-                    <option value="">Gasabo</option>
-                </select>
-            </div>
-            <!-- search -->
-            <div class="relative flex flex-row w-auto mx-3">
-                <input type="text" class="w-[20rem] border border-gray-300 rounded-full pr-3 pl-14 py-3" placeholder="Medicine and health care items">
-                <button class="absolute left-1 top-1 bottom-1 my-auto bg-[#9EE06E] rounded-full p-2">
-                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                                stroke="#16350E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </button>
-            </div>
+  </head>
+  <body>
+    <nav
+      class="bg-[#F6F7F8] mx-5 my-3 rounded-lg px-10 py-3 flex flex-row justify-between"
+    >
+      <div class="flex flex-row">
+        <!-- brand -->
+        <div class="flex flex-row items-center text-[#16350E] space-x-4">
+          <svg
+            class="w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            id="Layer_1"
+            viewBox="0 0 491.607 491.607"
+            xml:space="preserve"
+            fill="#000000"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <path
+                    style="fill: #16350e"
+                    d="M338.686,126.731V77.156c0-0.658-0.623-1.282-1.282-1.282H153.948 c-0.658,0-1.282,0.623-1.282,1.282v49.575h-38.448V77.156c0-21.908,17.822-39.73,39.73-39.73h183.457 c21.908,0,39.73,17.822,39.73,39.73v49.575H338.686z"
+                  ></path>
+                </g>
+                <path
+                  style="fill: #9ee06e"
+                  d="M475.607,454.181H16.255c-8.8,0-16-7.2-16-16V132.915c0-8.8,7.2-16,16-16h459.352 c8.8,0,16,7.2,16,16v305.266C491.607,446.981,484.407,454.181,475.607,454.181z"
+                ></path>
+                <circle
+                  style="fill: #16350e"
+                  cx="245.931"
+                  cy="285.548"
+                  r="106.675"
+                ></circle>
+                <polygon
+                  style="fill: #ff3069"
+                  points="312.58,267.455 264.024,267.455 264.024,218.9 227.839,218.9 227.839,267.455 179.283,267.455 179.283,303.641 227.839,303.641 227.839,352.197 264.024,352.197 264.024,303.641 312.58,303.641 "
+                ></polygon>
+                <path
+                  style="fill: #16350e"
+                  d="M491.607,438.181V382.32h-3.76l0,0c-39.088,0-70.774,31.687-70.774,70.775v0v1.086h58.534 C484.407,454.181,491.607,446.981,491.607,438.181z"
+                ></path>
+                <path
+                  style="fill: #16350e"
+                  d="M487.553,187.69L487.553,187.69h4.054v-54.775c0-8.8-7.2-16-16-16h-58.829v0 C416.778,156.003,448.465,187.69,487.553,187.69z"
+                ></path>
+                <path
+                  style="fill: #16350e"
+                  d="M0.55,187.69c39.088,0,70.774-31.687,70.774-70.775v0H16.255c-8.8,0-16,7.2-16,16v51.462 L0.55,187.69L0.55,187.69z"
+                ></path>
+                <path
+                  style="fill: #16350e"
+                  d="M71.03,453.094L71.03,453.094c0-39.088-31.687-70.775-70.774-70.775l0,0v55.861c0,8.8,7.2,16,16,16 h55.069v-1.087L71.03,453.094z"
+                ></path>
+                <rect
+                  x="114.218"
+                  y="97.653"
+                  style="fill: #16350e"
+                  width="38.448"
+                  height="19.263"
+                ></rect>
+                <rect
+                  x="338.686"
+                  y="97.653"
+                  style="fill: #16350e"
+                  width="38.448"
+                  height="19.263"
+                ></rect>
+                <path
+                  style="opacity: 0.2; fill: #16350e"
+                  d="M475.352,116.915h-39.751v270.848c0,8.8-7.2,16-16,16H0v34.418c0,8.8,7.2,16,16,16 h459.352c8.8,0,16-7.2,16-16V132.915C491.352,124.115,484.152,116.915,475.352,116.915z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          <p class="text-3xl font-black">Medicare</p>
         </div>
-        <div class="flex flex-row space-x-5">
-            <div class="flex flex-col">
-                <span class="bg-[#FE6843] px-1 rounded-lg w-min">
-                    New
-                </span>
-                <select name="" id="" class="text-[#16350E] text-left font-bold bg-transparent">
-                    <option value="">Healthcare Services</option>
-                    <option value="">Medicine</option>
-                </select>
-            </div>
-            <div class="flex flex-row items-center hover:cursor-pointer">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M14.25 9L9.75 15M15 14.25C15 14.6642 14.6642 15 14.25 15C13.8358 15 13.5 14.6642 13.5 14.25C13.5 13.8358 13.8358 13.5 14.25 13.5C14.6642 13.5 15 13.8358 15 14.25ZM10.5 9.75C10.5 10.1642 10.1642 10.5 9.75 10.5C9.33579 10.5 9 10.1642 9 9.75C9 9.33579 9.33579 9 9.75 9C10.1642 9 10.5 9.33579 10.5 9.75ZM21.75 12C21.75 13.2 20.1 14.1 19.65 15.15C19.2 16.275 19.725 18.075 18.9 18.9C18.075 19.725 16.275 19.2 15.15 19.65C14.1 20.1 13.2 21.75 12 21.75C10.8 21.75 9.9 20.1 8.85 19.65C7.725 19.2 5.925 19.725 5.1 18.9C4.275 18.075 4.8 16.275 4.35 15.15C3.9 14.1 2.25 13.2 2.25 12C2.25 10.8 3.9 9.9 4.35 8.85C4.8 7.725 4.275 5.925 5.1 5.1C5.925 4.275 7.725 4.8 8.85 4.35C9.9 3.9 10.8 2.25 12 2.25C13.2 2.25 14.1 3.9 15.15 4.35C16.275 4.8 18.075 4.275 18.9 5.1C19.725 5.925 19.2 7.725 19.65 8.85C20.1 9.9 21.75 10.8 21.75 12Z"
-                            stroke="#FE6843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
-                <span class="text-xl text-[#FE6843] font-semibold">Offers</span>
-            </div>
-            <div class="flex flex-row items-center hover:cursor-pointer">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
-                            stroke="#16350E" stroke-width="1.5"></path>
-                        <path
-                            d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
-                            stroke="#16350E" stroke-width="1.5"></path>
-                        <path
-                            d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7"
-                            stroke="#16350E" stroke-width="1.5" stroke-linecap="round"></path>
-                    </g>
-                </svg>
-                <span class="text-xl text-[#16350E] font-semibold">Cart</span>
-            </div>
-            <div class="flex flex-row items-center hover:cursor-pointer">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                            stroke="#16350E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
-                <span class="text-xl text-[#16350E] font-semibold">Login</span>
-            </div>
+        <!-- select location -->
+        <div class="border border-gray-300 border-r-[2px] mx-3"></div>
+        <div class="flex flex-col">
+          <span class="flex flex-row text-gray-500 font-semibold">
+            <svg
+              class="w-7 h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z"
+                  stroke="#6B7280"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                  stroke="#6B7280"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            Select Location
+          </span>
+          <select
+            name=""
+            id=""
+            class="text-[#16350E] text-right font-bold bg-transparent"
+          >
+            <option value="">Nyarugenge</option>
+            <option value="">Kicukiro</option>
+            <option value="">Gasabo</option>
+          </select>
         </div>
+        <!-- search -->
+        <div class="relative flex flex-row w-auto mx-3">
+          <input
+            type="text"
+            class="w-[20rem] border border-gray-300 rounded-full pr-3 pl-14 py-3"
+            placeholder="Medicine and health care items"
+          />
+          <button
+            class="absolute left-1 top-1 bottom-1 my-auto bg-[#9EE06E] rounded-full p-2"
+          >
+            <svg
+              class="w-7 h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                  stroke="#16350E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-row space-x-5">
+        <div class="flex flex-col">
+          <span class="bg-[#FE6843] px-1 rounded-lg w-min"> New </span>
+          <select
+            name=""
+            id=""
+            class="text-[#16350E] text-left font-bold bg-transparent"
+          >
+            <option value="">Healthcare Services</option>
+            <option value="">Medicine</option>
+          </select>
+        </div>
+        <div
+          class="flex flex-row items-center hover:cursor-pointer hover:bg-[#FE6843] hover:bg-opacity-5 hover:rounded-lg"
+        >
+          <svg
+            class="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M14.25 9L9.75 15M15 14.25C15 14.6642 14.6642 15 14.25 15C13.8358 15 13.5 14.6642 13.5 14.25C13.5 13.8358 13.8358 13.5 14.25 13.5C14.6642 13.5 15 13.8358 15 14.25ZM10.5 9.75C10.5 10.1642 10.1642 10.5 9.75 10.5C9.33579 10.5 9 10.1642 9 9.75C9 9.33579 9.33579 9 9.75 9C10.1642 9 10.5 9.33579 10.5 9.75ZM21.75 12C21.75 13.2 20.1 14.1 19.65 15.15C19.2 16.275 19.725 18.075 18.9 18.9C18.075 19.725 16.275 19.2 15.15 19.65C14.1 20.1 13.2 21.75 12 21.75C10.8 21.75 9.9 20.1 8.85 19.65C7.725 19.2 5.925 19.725 5.1 18.9C4.275 18.075 4.8 16.275 4.35 15.15C3.9 14.1 2.25 13.2 2.25 12C2.25 10.8 3.9 9.9 4.35 8.85C4.8 7.725 4.275 5.925 5.1 5.1C5.925 4.275 7.725 4.8 8.85 4.35C9.9 3.9 10.8 2.25 12 2.25C13.2 2.25 14.1 3.9 15.15 4.35C16.275 4.8 18.075 4.275 18.9 5.1C19.725 5.925 19.2 7.725 19.65 8.85C20.1 9.9 21.75 10.8 21.75 12Z"
+                stroke="#FE6843"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          <span class="text-xl text-[#FE6843] font-semibold">Offers</span>
+        </div>
+        <div
+          class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
+        >
+          <svg
+            class="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+                stroke="#16350E"
+                stroke-width="1.5"
+              ></path>
+              <path
+                d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+                stroke="#16350E"
+                stroke-width="1.5"
+              ></path>
+              <path
+                d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7"
+                stroke="#16350E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+            </g>
+          </svg>
+          <span class="text-xl text-[#16350E] font-semibold">Cart</span>
+        </div>
+        <div
+          class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
+        >
+          <svg
+            class="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                stroke="#16350E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          <span class="text-xl text-[#16350E] font-semibold">Login</span>
+        </div>
+      </div>
     </nav>
-    <div class="bg-[#9EE06E] mx-5 my-3 rounded-lg">
-        
-        <div class="relative h-[35rem]">
-            <p class="text-[16rem] w-full font-extrabold text-[#16350E]">Pharmacy</p>
-            <p class="text-md font-bold w-96">ONLINE MEDICINE DELIVERY IS THE PROCESS OF ORDERING MEDICATIONS THROUGH A WEBSITE OR APP AND HAVING THEM DELIVERED TO
-            YOUR DOORSTEP.</p>
-            <img class="absolute bottom-0 left-0 right-0 mx-auto  h-[30rem]" src="{% static 'front-view-young-female.png' %}" alt="">
+    <section class="bg-[#9EE06E] mx-5 my-3 rounded-lg">
+      <div class="relative min-h-[35rem] px-10">
+        <p
+          class="lg:text-[13rem] xl:text-[16rem] w-full font-extrabold text-[#16350E] leading-none"
+        >
+          Pharmacy
+        </p>
+        <p class="text-md font-bold w-96 pl-4 text-[#16350E]">
+          ONLINE MEDICINE DELIVERY IS THE PROCESS OF ORDERING MEDICATIONS
+          THROUGH A WEBSITE OR APP AND HAVING THEM DELIVERED TO YOUR DOORSTEP.
+        </p>
+        <div
+          class="absolute right-4 bottom-4 bg-white rounded-lg flex flex-col p-5"
+        >
+          <label
+            for="file-upload"
+            class="bg-[#9EE06E] bg-opacity-20 rounded-lg border border-dashed border-gray-900/25 flex flex-row items-center w-full h-32 px-6 py-10 cursor-pointer rounded-md font-semibold hover:text-indigo-500"
+          >
+            <span
+              class="text-wrap text-2xl text-[#16350E] align-middle leading-none"
+              >Upload<br />prescription
+              <input
+                id="file-upload"
+                name="file-upload"
+                type="file"
+                class="sr-only"
+              />
+            </span>
+            <svg
+              class="h-20"
+              fill="#16350E"
+              height="200px"
+              width="200px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 406.846 406.846"
+              xml:space="preserve"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M207.039,229.992c0,5.523-4.477,10-10,10h-68.572c-5.523,0-10-4.477-10-10s4.477-10,10-10h68.572 C202.562,219.992,207.039,224.469,207.039,229.992z M197.039,258.362h-68.572c-5.523,0-10,4.477-10,10s4.477,10,10,10h68.572 c5.523,0,10-4.477,10-10S202.562,258.362,197.039,258.362z M127.753,101.563h17.312v17.313c0,5.523,4.477,10,10,10s10-4.477,10-10 v-17.313h17.312c5.523,0,10-4.477,10-10s-4.477-10-10-10h-17.312V64.25c0-5.523-4.477-10-10-10s-10,4.477-10,10v17.312h-17.312 c-5.523,0-10,4.477-10,10S122.23,101.563,127.753,101.563z M118.468,191.625c0,5.523,4.477,10,10,10h149.907c5.523,0,10-4.477,10-10 s-4.477-10-10-10H128.468C122.945,181.625,118.468,186.102,118.468,191.625z M348.39,78.644v318.202c0,5.523-4.477,10-10,10H68.455 c-5.523,0-10-4.477-10-10V10c0-5.523,4.477-10,10-10h201.29c0.395,0.002,0.771,0.017,1.152,0.059 c0.012,0.001,0.024,0.004,0.033,0.003c0.012,0.002,0.022,0.003,0.033,0.004c0.012,0.001,0.022,0.002,0.033,0.004 c0.01,0,0.021,0.002,0.032,0.004c0,0,0.001,0,0.001,0c0.419,0.051,0.833,0.128,1.238,0.231c0.005,0.001,0.011,0.002,0.016,0.004 h0.001c1.659,0.422,3.213,1.271,4.492,2.511c0.001,0.001,0.003,0.002,0.004,0.004c0.006,0.006,0.012,0.011,0.018,0.017 c0.003,0.003,0.007,0.007,0.01,0.01c0.004,0.004,0.008,0.008,0.012,0.012c0.005,0.005,0.01,0.01,0.016,0.015 c0.002,0.002,0.004,0.004,0.006,0.006c0.015,0.015,0.03,0.03,0.044,0.044L345.461,71.5c0.006,0.007,0.013,0.013,0.02,0.02 c0.002,0.002,0.004,0.004,0.006,0.006c0.005,0.005,0.01,0.01,0.015,0.015c0.001,0.002,0.003,0.003,0.005,0.005 c0.014,0.014,0.027,0.028,0.041,0.042c0,0,0.001,0.001,0.002,0.002c0.007,0.007,0.013,0.014,0.02,0.021h0 c1.195,1.233,2.027,2.723,2.463,4.314c0,0.001,0,0.003,0.001,0.004c0.002,0.007,0.004,0.015,0.006,0.022 c0.001,0.005,0.002,0.01,0.004,0.015c0.001,0.005,0.002,0.009,0.004,0.014c0.001,0.006,0.003,0.013,0.005,0.02 c0,0.001,0,0.002,0.001,0.003c0.125,0.471,0.216,0.952,0.271,1.44c0,0.004,0.001,0.008,0.001,0.012s0.001,0.008,0.001,0.012 c0,0.007,0.001,0.015,0.002,0.022c0,0,0,0.002,0,0.003C348.373,77.874,348.393,78.258,348.39,78.644z M279.818,68.571h34.43 l-34.43-34.429V68.571z M328.39,88.571h-58.572c-5.523,0-10-4.477-10-10V20H78.455v366.846H328.39V88.571z M278.374,219.992h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,219.992,278.374,219.992z M278.374,328.605h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,328.605,278.374,328.605z M278.374,258.362h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,258.362,278.374,258.362z"
+                ></path>
+              </g>
+            </svg>
+          </label>
+          <div
+            class="py-4 flex flex-row items-center justify-between text-[#9EE06E]"
+          >
+            <button class="rounded-full bg-[#16350E] p-4">
+              <svg
+                class="h-10 w-10"
+                fill="#9EE06E"
+                height="200px"
+                width="200px"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 406.846 406.846"
+                xml:space="preserve"
+                stroke="#fff"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M207.039,229.992c0,5.523-4.477,10-10,10h-68.572c-5.523,0-10-4.477-10-10s4.477-10,10-10h68.572 C202.562,219.992,207.039,224.469,207.039,229.992z M197.039,258.362h-68.572c-5.523,0-10,4.477-10,10s4.477,10,10,10h68.572 c5.523,0,10-4.477,10-10S202.562,258.362,197.039,258.362z M127.753,101.563h17.312v17.313c0,5.523,4.477,10,10,10s10-4.477,10-10 v-17.313h17.312c5.523,0,10-4.477,10-10s-4.477-10-10-10h-17.312V64.25c0-5.523-4.477-10-10-10s-10,4.477-10,10v17.312h-17.312 c-5.523,0-10,4.477-10,10S122.23,101.563,127.753,101.563z M118.468,191.625c0,5.523,4.477,10,10,10h149.907c5.523,0,10-4.477,10-10 s-4.477-10-10-10H128.468C122.945,181.625,118.468,186.102,118.468,191.625z M348.39,78.644v318.202c0,5.523-4.477,10-10,10H68.455 c-5.523,0-10-4.477-10-10V10c0-5.523,4.477-10,10-10h201.29c0.395,0.002,0.771,0.017,1.152,0.059 c0.012,0.001,0.024,0.004,0.033,0.003c0.012,0.002,0.022,0.003,0.033,0.004c0.012,0.001,0.022,0.002,0.033,0.004 c0.01,0,0.021,0.002,0.032,0.004c0,0,0.001,0,0.001,0c0.419,0.051,0.833,0.128,1.238,0.231c0.005,0.001,0.011,0.002,0.016,0.004 h0.001c1.659,0.422,3.213,1.271,4.492,2.511c0.001,0.001,0.003,0.002,0.004,0.004c0.006,0.006,0.012,0.011,0.018,0.017 c0.003,0.003,0.007,0.007,0.01,0.01c0.004,0.004,0.008,0.008,0.012,0.012c0.005,0.005,0.01,0.01,0.016,0.015 c0.002,0.002,0.004,0.004,0.006,0.006c0.015,0.015,0.03,0.03,0.044,0.044L345.461,71.5c0.006,0.007,0.013,0.013,0.02,0.02 c0.002,0.002,0.004,0.004,0.006,0.006c0.005,0.005,0.01,0.01,0.015,0.015c0.001,0.002,0.003,0.003,0.005,0.005 c0.014,0.014,0.027,0.028,0.041,0.042c0,0,0.001,0.001,0.002,0.002c0.007,0.007,0.013,0.014,0.02,0.021h0 c1.195,1.233,2.027,2.723,2.463,4.314c0,0.001,0,0.003,0.001,0.004c0.002,0.007,0.004,0.015,0.006,0.022 c0.001,0.005,0.002,0.01,0.004,0.015c0.001,0.005,0.002,0.009,0.004,0.014c0.001,0.006,0.003,0.013,0.005,0.02 c0,0.001,0,0.002,0.001,0.003c0.125,0.471,0.216,0.952,0.271,1.44c0,0.004,0.001,0.008,0.001,0.012s0.001,0.008,0.001,0.012 c0,0.007,0.001,0.015,0.002,0.022c0,0,0,0.002,0,0.003C348.373,77.874,348.393,78.258,348.39,78.644z M279.818,68.571h34.43 l-34.43-34.429V68.571z M328.39,88.571h-58.572c-5.523,0-10-4.477-10-10V20H78.455v366.846H328.39V88.571z M278.374,219.992h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,219.992,278.374,219.992z M278.374,328.605h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,328.605,278.374,328.605z M278.374,258.362h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,258.362,278.374,258.362z"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+            <button class="rounded-full text-2xl font-bold bg-[#16350E] p-4">
+              Order Via Prescription
+            </button>
+          </div>
         </div>
-    </div>
-</body>
+        <div class="flex flex-row space-x-6">
+          <div
+            class="flex flex-row items-center hover:cursor-pointer mt-28 pl-4 space-x-3"
+          >
+            <span class="bg-[#16350E] rounded-full p-2">
+              <svg
+                class="w-9 h-9"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M18.0909 2.54877C17.5385 2.23946 16.9504 2.20831 16.3288 2.286C15.7383 2.3598 15.02 2.54651 14.1567 2.7709L12.1384 3.2954C11.2755 3.51963 10.557 3.70634 10.0072 3.92891C9.4292 4.16293 8.92943 4.47736 8.60526 5.02195C8.27903 5.56998 8.24664 6.15584 8.32794 6.76777C8.40459 7.34473 8.59805 8.04488 8.82853 8.87901L9.37108 10.8429C9.60161 11.6775 9.79499 12.3775 10.0259 12.9139C10.271 13.4835 10.5985 13.9684 11.1541 14.2795C11.7064 14.5888 12.2945 14.62 12.9162 14.5423C13.5066 14.4685 14.225 14.2818 15.0882 14.0574L17.1066 13.5329C17.9695 13.3086 18.688 13.1219 19.2377 12.8994C19.8157 12.6653 20.3155 12.3509 20.6397 11.8063C20.9659 11.2583 20.9983 10.6724 20.917 10.0605C20.8403 9.48355 20.6469 8.7834 20.4164 7.94926L19.8738 5.98536C19.6433 5.1508 19.4499 4.45076 19.2191 3.91434C18.9739 3.34477 18.6465 2.85989 18.0909 2.54877ZM14.485 4.2354C15.4099 3.99503 16.0331 3.83463 16.5148 3.77442C16.9764 3.71673 17.1974 3.7676 17.358 3.85754C17.5154 3.94567 17.6656 4.09931 17.8413 4.50734C18.0265 4.93768 18.1937 5.53684 18.442 6.43548L18.9564 8.29754C19.2048 9.19641 19.3687 9.79611 19.4301 10.2581C19.4883 10.6968 19.4362 10.8956 19.3508 11.0391C19.2633 11.186 19.1047 11.3349 18.6748 11.509C18.2271 11.6903 17.605 11.8535 16.6798 12.0939L14.76 12.5929C13.835 12.8333 13.2118 12.9937 12.7301 13.0539C12.2685 13.1116 12.0476 13.0607 11.8869 12.9707C11.7296 12.8826 11.5793 12.729 11.4037 12.3209C11.2185 11.8906 11.0512 11.2914 10.8029 10.3928L10.2885 8.53074C10.0402 7.63187 9.87625 7.03217 9.81487 6.57022C9.75658 6.13148 9.80876 5.93269 9.89418 5.78921C9.98164 5.64227 10.1402 5.49334 10.5701 5.31928C11.0179 5.138 11.64 4.97476 12.5651 4.73434L14.485 4.2354Z"
+                    fill="#9EE06E"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M3.2007 4.72469C2.80157 4.61396 2.38823 4.84775 2.27749 5.24688C2.16675 5.64602 2.40054 6.05936 2.79968 6.17009L4.50338 6.64278C4.92898 6.76086 5.24592 7.08236 5.35419 7.47427L7.3055 14.5374C7.23053 14.5521 7.1556 14.5692 7.0808 14.5887C5.10375 15.1025 3.89563 17.0913 4.43836 19.0558C4.97848 21.0108 7.03215 22.1384 9.00137 21.6266C10.7247 21.1788 11.8638 19.6102 11.7683 17.9139L20.1888 15.7256C20.5897 15.6214 20.8303 15.2119 20.7261 14.811C20.6219 14.4101 20.2124 14.1696 19.8115 14.2738L11.3734 16.4667C10.8651 15.4794 9.93146 14.7927 8.86688 14.5562L6.80003 7.07483C6.5469 6.1586 5.82129 5.45177 4.9044 5.19738L3.2007 4.72469ZM7.45809 16.0404C8.66981 15.7255 9.88575 16.4288 10.198 17.5589C10.5076 18.6796 9.82797 19.862 8.62408 20.1748C7.41235 20.4897 6.19641 19.7864 5.8842 18.6563C5.5746 17.5357 6.25419 16.3533 7.45809 16.0404Z"
+                    fill="#9EE06E"
+                  ></path>
+                </g>
+              </svg>
+            </span>
+            <span class="text-xl text-[#16350E] font-semibold"
+              >Delivery to<br />your doorstep</span
+            >
+          </div>
+          <div
+            class="flex flex-row items-center hover:cursor-pointer mt-28 pl-4 space-x-3"
+          >
+            <span class="bg-[#16350E] rounded-full p-2">
+              <svg
+                class="w-9 h-9"
+                fill="#9EE06E"
+                height="200px"
+                width="200px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512 512"
+                xml:space="preserve"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M139.706,154.674C62.671,154.674,0,217.345,0,294.379c0,77.035,62.671,139.706,139.706,139.706 c77.035,0,139.706-62.671,139.706-139.706C279.411,217.345,216.74,154.674,139.706,154.674z M139.706,171.794 c64.466,0,117.399,50.207,121.897,113.511H17.809C22.307,222.001,75.24,171.794,139.706,171.794z M139.706,416.279 c-64.466,0-117.399-50.207-121.897-113.511h243.794C257.105,366.072,204.172,416.279,139.706,416.279z"
+                      ></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path
+                        d="M425.463,115.821c-5.852-15.259-17.284-27.318-32.196-33.957L233.737,10.837c-30.784-13.705-66.988,0.186-80.699,30.976 c-6.63,14.894-7.063,31.492-1.215,46.74c5.85,15.259,17.284,27.318,32.194,33.957l159.531,71.029 c8.056,3.586,16.476,5.282,24.773,5.282c23.415,0,45.805-13.526,55.926-36.259C430.878,147.669,431.308,131.069,425.463,115.821z M191.119,106.556c-10.646-4.739-18.813-13.353-22.991-24.255c-4.178-10.893-3.871-22.75,0.864-33.385 c9.791-21.993,35.651-31.914,57.642-22.125l76.819,34.202l-38.482,78.446L191.119,106.556z M408.292,155.461 c-9.789,21.989-35.651,31.914-57.642,22.125l-69.714-31.04l38.48-78.446l66.749,29.718c10.646,4.741,18.813,13.355,22.993,24.255 C413.333,132.969,413.026,144.825,408.292,155.461z"
+                      ></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path
+                        d="M489.372,262.135c-26.195-21.213-64.758-17.154-85.967,9.034L293.508,406.882c-21.211,26.193-17.158,64.756,9.032,85.967 c11.296,9.147,24.894,13.596,38.408,13.596c17.821,0,35.498-7.736,47.559-22.633l109.897-135.711 C519.613,321.907,515.561,283.344,489.372,262.135z M374.937,472.821c-15.148,18.71-42.699,21.603-61.405,6.457 c-18.708-15.15-21.603-42.697-6.453-61.405l50.718-62.63l67.855,54.95L374.937,472.821z M484.834,337.11l-48.19,59.51 l-67.857-54.95l48.19-59.51c15.152-18.708,42.699-21.603,61.405-6.455C497.089,290.856,499.982,318.402,484.834,337.11z"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            <span class="text-xl text-[#16350E] font-semibold"
+              >100% Genuine<br />Medicines</span
+            >
+          </div>
+        </div>
+        <img
+          class="absolute bottom-0 left-0 right-0 mx-auto h-[30rem]"
+          src="{% static 'front-view-young-female.png' %}"
+          alt=""
+        />
+      </div>
+    </section>
+    <section class="grid grid-cols-6 gap-4 mx-5 my-20">
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'bone_joint.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Bone & Joint Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'diabetes.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Bone & Joint Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'kidney.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Kidney Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'liver.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Liver Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'respiratory.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Respiratory Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="">
+        <figure>
+          <img
+            class="rounded-lg w-full h-[17rem] object-cover"
+            src="{% static 'eye.jpg' %}"
+            alt=""
+          />
+          <figcaption class="w-full flex justify-center">
+            <h1 class="text-2xl font-bold text-[#263562]">Eye Care</h1>
+          </figcaption>
+        </figure>
+      </a>
+    </section>
+    <section class="mx-5">
+      <h2 class="text-5xl font-black text-[#263562]">
+        Today's best deals<br />for you!
+      </h2>
+      <div class="grid grid-cols-4 py-4">
+        <div
+          class="relative w-[20rem] h-[25rem] bg-cover rounded-3xl"
+          style="background-image: url('{% static 'liver.jpg' %}')"
+        >
+          <span
+            class="absolute bg-[#F0DA69] rounded-l-lg right-0 top-10 px-4 py-3"
+          >
+            20% off
+          </span>
+          <div
+            class="absolute flex flex-col -bottom-32 w-full rounded-3xl p-5 bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+                <h2 class="text-xl font-bold text-[#263562]">
+                  Mediterranean Fruits
+                </h2>
+              </div>
+              <div class="flex">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FB8148"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                  />
+                </svg>
+                <span class="text-blue-300">(4.8)</span>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between items-center mt-10">
+              <button
+                class="flex border border-[#263562] border-2 px-4 py-2 rounded-full text-[#263562] font-semibold"
+              >
+                <svg
+                  class="w-6 h-6 text-[#263562]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14m-7 7V5"
+                  />
+                </svg>
+                Add To Cart
+              </button>
+              <p class="text-3xl font-semibold text-[#263562]">$40.00</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative w-[20rem] h-[25rem] bg-cover rounded-3xl"
+          style="background-image: url('{% static 'eye.jpg' %}')"
+        >
+          <div
+            class="absolute flex flex-col -bottom-32 w-full rounded-3xl p-5 bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+                <h2 class="text-xl font-bold text-[#263562]">
+                  Mediterranean Fruits
+                </h2>
+              </div>
+              <div class="flex">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FB8148"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                  />
+                </svg>
+                <span class="text-blue-300">(4.8)</span>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between items-center mt-10">
+              <button
+                class="flex border border-[#263562] border-2 px-4 py-2 rounded-full text-[#263562] font-semibold"
+              >
+                <svg
+                  class="w-6 h-6 text-[#263562]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14m-7 7V5"
+                  />
+                </svg>
+                Add To Cart
+              </button>
+              <p class="text-3xl font-semibold text-[#263562]">$40.00</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative w-[20rem] h-[25rem] bg-cover rounded-3xl"
+          style="background-image: url('{% static 'respiratory.jpg' %}')"
+        >
+          <div
+            class="absolute flex flex-col -bottom-32 w-full rounded-3xl p-5 bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+                <h2 class="text-xl font-bold text-[#263562]">
+                  Mediterranean Fruits
+                </h2>
+              </div>
+              <div class="flex">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FB8148"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                  />
+                </svg>
+                <span class="text-blue-300">(4.8)</span>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between items-center mt-10">
+              <button
+                class="flex border border-[#263562] border-2 px-4 py-2 rounded-full text-[#263562] font-semibold"
+              >
+                <svg
+                  class="w-6 h-6 text-[#263562]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14m-7 7V5"
+                  />
+                </svg>
+                Add To Cart
+              </button>
+              <p class="text-3xl font-semibold text-[#263562]">$40.00</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative w-[20rem] h-[25rem] bg-cover rounded-3xl"
+          style="background-image: url('{% static 'kidney.jpg' %}')"
+        >
+          <div
+            class="absolute flex flex-col -bottom-32 w-full rounded-3xl p-5 bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+                <h2 class="text-xl font-bold text-[#263562]">
+                  Mediterranean Fruits
+                </h2>
+              </div>
+              <div class="flex">
+                <svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FB8148"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                  />
+                </svg>
+                <span class="text-blue-300">(4.8)</span>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between items-center mt-10">
+              <button
+                class="flex border border-[#263562] border-2 px-4 py-2 rounded-full text-[#263562] font-semibold"
+              >
+                <svg
+                  class="w-6 h-6 text-[#263562]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14m-7 7V5"
+                  />
+                </svg>
+                Add To Cart
+              </button>
+              <p class="text-3xl font-semibold text-[#263562]">$40.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
