@@ -84,6 +84,7 @@
       </svg>
       <p class="text-3xl font-black">Medicare</p>
     </a>
+    {% if request.path == '/products/' %}
     <!-- select location -->
     <div class="border border-gray-300 border-r-[2px] mx-3"></div>
     <div class="flex flex-col">
@@ -129,7 +130,7 @@
         <option value="">Gasabo</option>
       </select>
     </div>
-    {% if request.path == '/products/' %}
+    
     <!-- search -->
     <div class="relative flex flex-row w-auto mx-3">
       <input

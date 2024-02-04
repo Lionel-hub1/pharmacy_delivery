@@ -68,7 +68,7 @@ class Order(models.Model):
         ("accepted", "accepted"),
         ("rejected", "rejected")
     ]
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    # customer = models.ForeignKey(User, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     order_date = models.DateField()
@@ -82,7 +82,7 @@ class Order(models.Model):
 
 
 class Delivery(models.Model):
-    delivery_person = models.ForeignKey(User, on_delete=models.CASCADE)
+    # delivery_person = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     delivery_date = models.DateField()
     status = models.CharField(max_length=100)
