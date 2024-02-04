@@ -1,0 +1,609 @@
+{% extends "base/base.html" %}
+{% block title %}Medicare Home{% endblock %}
+{% load static %}
+{% block content %}
+<!-- Home welcome Section -->
+<section class="bg-[#C5E8A1] mx-5 my-3 rounded-lg">
+  <div class="relative min-h-[35rem] px-10">
+    <p
+      class="lg:text-[13rem] xl:text-[16rem] w-full font-extrabold text-[#16350E] leading-none"
+    >
+      Pharmacy
+    </p>
+    <p class="text-md font-bold w-96 pl-4 text-[#16350E]">
+      ONLINE MEDICINE DELIVERY IS THE PROCESS OF ORDERING MEDICATIONS THROUGH A
+      WEBSITE OR APP AND HAVING THEM DELIVERED TO YOUR DOORSTEP.
+    </p>
+    <div
+      class="absolute right-4 bottom-4 bg-white rounded-lg flex flex-col p-5"
+    >
+      <label
+        for="file-upload"
+        class="bg-[#C5E8A1] bg-opacity-20 rounded-lg border border-dashed border-gray-900/25 flex flex-row items-center w-full h-32 px-6 py-10 cursor-pointer rounded-md font-semibold hover:text-indigo-500"
+      >
+        <span
+          class="text-wrap text-2xl text-[#16350E] align-middle leading-none"
+          >Upload<br />prescription
+          <input
+            id="file-upload"
+            name="file-upload"
+            type="file"
+            class="sr-only"
+          />
+        </span>
+        <svg
+          class="h-20"
+          fill="#16350E"
+          height="200px"
+          width="200px"
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 406.846 406.846"
+          xml:space="preserve"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M207.039,229.992c0,5.523-4.477,10-10,10h-68.572c-5.523,0-10-4.477-10-10s4.477-10,10-10h68.572 C202.562,219.992,207.039,224.469,207.039,229.992z M197.039,258.362h-68.572c-5.523,0-10,4.477-10,10s4.477,10,10,10h68.572 c5.523,0,10-4.477,10-10S202.562,258.362,197.039,258.362z M127.753,101.563h17.312v17.313c0,5.523,4.477,10,10,10s10-4.477,10-10 v-17.313h17.312c5.523,0,10-4.477,10-10s-4.477-10-10-10h-17.312V64.25c0-5.523-4.477-10-10-10s-10,4.477-10,10v17.312h-17.312 c-5.523,0-10,4.477-10,10S122.23,101.563,127.753,101.563z M118.468,191.625c0,5.523,4.477,10,10,10h149.907c5.523,0,10-4.477,10-10 s-4.477-10-10-10H128.468C122.945,181.625,118.468,186.102,118.468,191.625z M348.39,78.644v318.202c0,5.523-4.477,10-10,10H68.455 c-5.523,0-10-4.477-10-10V10c0-5.523,4.477-10,10-10h201.29c0.395,0.002,0.771,0.017,1.152,0.059 c0.012,0.001,0.024,0.004,0.033,0.003c0.012,0.002,0.022,0.003,0.033,0.004c0.012,0.001,0.022,0.002,0.033,0.004 c0.01,0,0.021,0.002,0.032,0.004c0,0,0.001,0,0.001,0c0.419,0.051,0.833,0.128,1.238,0.231c0.005,0.001,0.011,0.002,0.016,0.004 h0.001c1.659,0.422,3.213,1.271,4.492,2.511c0.001,0.001,0.003,0.002,0.004,0.004c0.006,0.006,0.012,0.011,0.018,0.017 c0.003,0.003,0.007,0.007,0.01,0.01c0.004,0.004,0.008,0.008,0.012,0.012c0.005,0.005,0.01,0.01,0.016,0.015 c0.002,0.002,0.004,0.004,0.006,0.006c0.015,0.015,0.03,0.03,0.044,0.044L345.461,71.5c0.006,0.007,0.013,0.013,0.02,0.02 c0.002,0.002,0.004,0.004,0.006,0.006c0.005,0.005,0.01,0.01,0.015,0.015c0.001,0.002,0.003,0.003,0.005,0.005 c0.014,0.014,0.027,0.028,0.041,0.042c0,0,0.001,0.001,0.002,0.002c0.007,0.007,0.013,0.014,0.02,0.021h0 c1.195,1.233,2.027,2.723,2.463,4.314c0,0.001,0,0.003,0.001,0.004c0.002,0.007,0.004,0.015,0.006,0.022 c0.001,0.005,0.002,0.01,0.004,0.015c0.001,0.005,0.002,0.009,0.004,0.014c0.001,0.006,0.003,0.013,0.005,0.02 c0,0.001,0,0.002,0.001,0.003c0.125,0.471,0.216,0.952,0.271,1.44c0,0.004,0.001,0.008,0.001,0.012s0.001,0.008,0.001,0.012 c0,0.007,0.001,0.015,0.002,0.022c0,0,0,0.002,0,0.003C348.373,77.874,348.393,78.258,348.39,78.644z M279.818,68.571h34.43 l-34.43-34.429V68.571z M328.39,88.571h-58.572c-5.523,0-10-4.477-10-10V20H78.455v366.846H328.39V88.571z M278.374,219.992h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,219.992,278.374,219.992z M278.374,328.605h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,328.605,278.374,328.605z M278.374,258.362h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,258.362,278.374,258.362z"
+            ></path>
+          </g>
+        </svg>
+      </label>
+      <div
+        class="py-4 flex flex-row items-center justify-between text-[#C5E8A1]"
+      >
+        <button class="rounded-full bg-[#16350E] p-4">
+          <svg
+            class="h-10 w-10"
+            fill="#C5E8A1"
+            height="200px"
+            width="200px"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 406.846 406.846"
+            xml:space="preserve"
+            stroke="#fff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M207.039,229.992c0,5.523-4.477,10-10,10h-68.572c-5.523,0-10-4.477-10-10s4.477-10,10-10h68.572 C202.562,219.992,207.039,224.469,207.039,229.992z M197.039,258.362h-68.572c-5.523,0-10,4.477-10,10s4.477,10,10,10h68.572 c5.523,0,10-4.477,10-10S202.562,258.362,197.039,258.362z M127.753,101.563h17.312v17.313c0,5.523,4.477,10,10,10s10-4.477,10-10 v-17.313h17.312c5.523,0,10-4.477,10-10s-4.477-10-10-10h-17.312V64.25c0-5.523-4.477-10-10-10s-10,4.477-10,10v17.312h-17.312 c-5.523,0-10,4.477-10,10S122.23,101.563,127.753,101.563z M118.468,191.625c0,5.523,4.477,10,10,10h149.907c5.523,0,10-4.477,10-10 s-4.477-10-10-10H128.468C122.945,181.625,118.468,186.102,118.468,191.625z M348.39,78.644v318.202c0,5.523-4.477,10-10,10H68.455 c-5.523,0-10-4.477-10-10V10c0-5.523,4.477-10,10-10h201.29c0.395,0.002,0.771,0.017,1.152,0.059 c0.012,0.001,0.024,0.004,0.033,0.003c0.012,0.002,0.022,0.003,0.033,0.004c0.012,0.001,0.022,0.002,0.033,0.004 c0.01,0,0.021,0.002,0.032,0.004c0,0,0.001,0,0.001,0c0.419,0.051,0.833,0.128,1.238,0.231c0.005,0.001,0.011,0.002,0.016,0.004 h0.001c1.659,0.422,3.213,1.271,4.492,2.511c0.001,0.001,0.003,0.002,0.004,0.004c0.006,0.006,0.012,0.011,0.018,0.017 c0.003,0.003,0.007,0.007,0.01,0.01c0.004,0.004,0.008,0.008,0.012,0.012c0.005,0.005,0.01,0.01,0.016,0.015 c0.002,0.002,0.004,0.004,0.006,0.006c0.015,0.015,0.03,0.03,0.044,0.044L345.461,71.5c0.006,0.007,0.013,0.013,0.02,0.02 c0.002,0.002,0.004,0.004,0.006,0.006c0.005,0.005,0.01,0.01,0.015,0.015c0.001,0.002,0.003,0.003,0.005,0.005 c0.014,0.014,0.027,0.028,0.041,0.042c0,0,0.001,0.001,0.002,0.002c0.007,0.007,0.013,0.014,0.02,0.021h0 c1.195,1.233,2.027,2.723,2.463,4.314c0,0.001,0,0.003,0.001,0.004c0.002,0.007,0.004,0.015,0.006,0.022 c0.001,0.005,0.002,0.01,0.004,0.015c0.001,0.005,0.002,0.009,0.004,0.014c0.001,0.006,0.003,0.013,0.005,0.02 c0,0.001,0,0.002,0.001,0.003c0.125,0.471,0.216,0.952,0.271,1.44c0,0.004,0.001,0.008,0.001,0.012s0.001,0.008,0.001,0.012 c0,0.007,0.001,0.015,0.002,0.022c0,0,0,0.002,0,0.003C348.373,77.874,348.393,78.258,348.39,78.644z M279.818,68.571h34.43 l-34.43-34.429V68.571z M328.39,88.571h-58.572c-5.523,0-10-4.477-10-10V20H78.455v366.846H328.39V88.571z M278.374,219.992h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,219.992,278.374,219.992z M278.374,328.605h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,328.605,278.374,328.605z M278.374,258.362h-37.905 c-5.523,0-10,4.477-10,10s4.477,10,10,10h37.905c5.523,0,10-4.477,10-10S283.897,258.362,278.374,258.362z"
+              ></path>
+            </g>
+          </svg>
+        </button>
+        <button
+          class="rounded-full text-[#C5E8A1] text-2xl font-bold bg-[#16350E] p-4"
+        >
+          Order Via Prescription
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-row space-x-6">
+      <div
+        class="flex flex-row items-center hover:cursor-pointer mt-28 pl-4 space-x-3"
+      >
+        <span class="bg-[#16350E] rounded-full p-2">
+          <svg
+            class="w-9 h-9"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.0909 2.54877C17.5385 2.23946 16.9504 2.20831 16.3288 2.286C15.7383 2.3598 15.02 2.54651 14.1567 2.7709L12.1384 3.2954C11.2755 3.51963 10.557 3.70634 10.0072 3.92891C9.4292 4.16293 8.92943 4.47736 8.60526 5.02195C8.27903 5.56998 8.24664 6.15584 8.32794 6.76777C8.40459 7.34473 8.59805 8.04488 8.82853 8.87901L9.37108 10.8429C9.60161 11.6775 9.79499 12.3775 10.0259 12.9139C10.271 13.4835 10.5985 13.9684 11.1541 14.2795C11.7064 14.5888 12.2945 14.62 12.9162 14.5423C13.5066 14.4685 14.225 14.2818 15.0882 14.0574L17.1066 13.5329C17.9695 13.3086 18.688 13.1219 19.2377 12.8994C19.8157 12.6653 20.3155 12.3509 20.6397 11.8063C20.9659 11.2583 20.9983 10.6724 20.917 10.0605C20.8403 9.48355 20.6469 8.7834 20.4164 7.94926L19.8738 5.98536C19.6433 5.1508 19.4499 4.45076 19.2191 3.91434C18.9739 3.34477 18.6465 2.85989 18.0909 2.54877ZM14.485 4.2354C15.4099 3.99503 16.0331 3.83463 16.5148 3.77442C16.9764 3.71673 17.1974 3.7676 17.358 3.85754C17.5154 3.94567 17.6656 4.09931 17.8413 4.50734C18.0265 4.93768 18.1937 5.53684 18.442 6.43548L18.9564 8.29754C19.2048 9.19641 19.3687 9.79611 19.4301 10.2581C19.4883 10.6968 19.4362 10.8956 19.3508 11.0391C19.2633 11.186 19.1047 11.3349 18.6748 11.509C18.2271 11.6903 17.605 11.8535 16.6798 12.0939L14.76 12.5929C13.835 12.8333 13.2118 12.9937 12.7301 13.0539C12.2685 13.1116 12.0476 13.0607 11.8869 12.9707C11.7296 12.8826 11.5793 12.729 11.4037 12.3209C11.2185 11.8906 11.0512 11.2914 10.8029 10.3928L10.2885 8.53074C10.0402 7.63187 9.87625 7.03217 9.81487 6.57022C9.75658 6.13148 9.80876 5.93269 9.89418 5.78921C9.98164 5.64227 10.1402 5.49334 10.5701 5.31928C11.0179 5.138 11.64 4.97476 12.5651 4.73434L14.485 4.2354Z"
+                fill="#C5E8A1"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.2007 4.72469C2.80157 4.61396 2.38823 4.84775 2.27749 5.24688C2.16675 5.64602 2.40054 6.05936 2.79968 6.17009L4.50338 6.64278C4.92898 6.76086 5.24592 7.08236 5.35419 7.47427L7.3055 14.5374C7.23053 14.5521 7.1556 14.5692 7.0808 14.5887C5.10375 15.1025 3.89563 17.0913 4.43836 19.0558C4.97848 21.0108 7.03215 22.1384 9.00137 21.6266C10.7247 21.1788 11.8638 19.6102 11.7683 17.9139L20.1888 15.7256C20.5897 15.6214 20.8303 15.2119 20.7261 14.811C20.6219 14.4101 20.2124 14.1696 19.8115 14.2738L11.3734 16.4667C10.8651 15.4794 9.93146 14.7927 8.86688 14.5562L6.80003 7.07483C6.5469 6.1586 5.82129 5.45177 4.9044 5.19738L3.2007 4.72469ZM7.45809 16.0404C8.66981 15.7255 9.88575 16.4288 10.198 17.5589C10.5076 18.6796 9.82797 19.862 8.62408 20.1748C7.41235 20.4897 6.19641 19.7864 5.8842 18.6563C5.5746 17.5357 6.25419 16.3533 7.45809 16.0404Z"
+                fill="#C5E8A1"
+              ></path>
+            </g>
+          </svg>
+        </span>
+        <span class="text-xl text-[#16350E] font-semibold">
+          Delivery to<br />
+          your doorstep
+        </span>
+      </div>
+      <div
+        class="flex flex-row items-center hover:cursor-pointer mt-28 pl-4 space-x-3"
+      >
+        <span class="bg-[#16350E] rounded-full p-2">
+          <svg
+            class="w-9 h-9"
+            fill="#C5E8A1"
+            height="200px"
+            width="200px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            xml:space="preserve"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <path
+                    d="M139.706,154.674C62.671,154.674,0,217.345,0,294.379c0,77.035,62.671,139.706,139.706,139.706 c77.035,0,139.706-62.671,139.706-139.706C279.411,217.345,216.74,154.674,139.706,154.674z M139.706,171.794 c64.466,0,117.399,50.207,121.897,113.511H17.809C22.307,222.001,75.24,171.794,139.706,171.794z M139.706,416.279 c-64.466,0-117.399-50.207-121.897-113.511h243.794C257.105,366.072,204.172,416.279,139.706,416.279z"
+                  ></path>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M425.463,115.821c-5.852-15.259-17.284-27.318-32.196-33.957L233.737,10.837c-30.784-13.705-66.988,0.186-80.699,30.976 c-6.63,14.894-7.063,31.492-1.215,46.74c5.85,15.259,17.284,27.318,32.194,33.957l159.531,71.029 c8.056,3.586,16.476,5.282,24.773,5.282c23.415,0,45.805-13.526,55.926-36.259C430.878,147.669,431.308,131.069,425.463,115.821z M191.119,106.556c-10.646-4.739-18.813-13.353-22.991-24.255c-4.178-10.893-3.871-22.75,0.864-33.385 c9.791-21.993,35.651-31.914,57.642-22.125l76.819,34.202l-38.482,78.446L191.119,106.556z M408.292,155.461 c-9.789,21.989-35.651,31.914-57.642,22.125l-69.714-31.04l38.48-78.446l66.749,29.718c10.646,4.741,18.813,13.355,22.993,24.255 C413.333,132.969,413.026,144.825,408.292,155.461z"
+                  ></path>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M489.372,262.135c-26.195-21.213-64.758-17.154-85.967,9.034L293.508,406.882c-21.211,26.193-17.158,64.756,9.032,85.967 c11.296,9.147,24.894,13.596,38.408,13.596c17.821,0,35.498-7.736,47.559-22.633l109.897-135.711 C519.613,321.907,515.561,283.344,489.372,262.135z M374.937,472.821c-15.148,18.71-42.699,21.603-61.405,6.457 c-18.708-15.15-21.603-42.697-6.453-61.405l50.718-62.63l67.855,54.95L374.937,472.821z M484.834,337.11l-48.19,59.51 l-67.857-54.95l48.19-59.51c15.152-18.708,42.699-21.603,61.405-6.455C497.089,290.856,499.982,318.402,484.834,337.11z"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </span>
+        <span class="text-xl text-[#16350E] font-semibold"
+          >100% Genuine<br />Medicines</span
+        >
+      </div>
+    </div>
+    <img
+      class="absolute bottom-0 left-0 right-0 mx-auto h-[30rem]"
+      src="{% static 'front-view-young-female.png' %}"
+      alt=""
+    />
+  </div>
+</section>
+
+<!-- Basic services section -->
+<section class="grid grid-cols-6 gap-4 mx-5 my-20">
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'bone_joint.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Bone & Joint Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'diabetes.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Bone & Joint Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'kidney.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Kidney Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'liver.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Liver Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'respiratory.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Respiratory Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+  <a href="#">
+    <figure>
+      <img
+        class="rounded-lg w-full h-[17rem] object-cover"
+        src="{% static 'eye.jpg' %}"
+        alt=""
+      />
+      <figcaption class="w-full flex justify-center">
+        <h1 class="text-2xl font-bold text-[#023047]">Eye Care</h1>
+      </figcaption>
+    </figure>
+  </a>
+</section>
+
+<!-- Best deals section -->
+<section class="mx-5">
+  <div class="flex justify-between">
+    <h2 class="text-5xl font-black text-[#023047]">
+      Today's best deals<br />for you!
+    </h2>
+    <a
+      href="{% url 'products' %}"
+      class="flex text-semibold text-[#023047] text-lg space-x-2"
+    >
+      <span>SEE ALL PRODUCTS</span>
+      <svg
+        class="w-6 h-6 text-[#023047]"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 12H5m14 0-4 4m4-4-4-4"
+        />
+      </svg>
+    </a>
+  </div>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4"
+  >
+    <div
+      class="relative w-[20rem] h-[25rem] bg-[#F6F7F8] rounded-3xl overflow-hidden shadow-lg"
+    >
+      <img
+        class="absolute top-0 object-cover h-[16rem] w-full"
+        src="{% static 'liver.jpg' %}"
+        alt=""
+      />
+      <span
+        class="absolute bg-[#F0DA69] text-[#023047] font-semibold rounded-l-lg right-0 top-10 px-4 py-2"
+      >
+        20% off
+      </span>
+      <div
+        class="absolute flex flex-col w-full rounded-3xl p-5 bg-white bottom-0"
+      >
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col">
+            <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+            <h2 class="text-xl font-bold text-[#023047]">
+              Mediterranean Fruits
+            </h2>
+          </div>
+          <div class="flex">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#FB8148"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+              />
+            </svg>
+            <span class="text-blue-300">(4.8)</span>
+          </div>
+        </div>
+        <div class="flex flex-row justify-between items-center mt-10">
+          <button
+            class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+          >
+            <svg
+              class="w-6 h-6 text-[#023047]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7 7V5"
+              />
+            </svg>
+            Add To Cart
+          </button>
+          <p class="text-3xl font-semibold text-[#023047]">$40.00</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[20rem] h-[25rem] bg-[#F6F7F8] rounded-3xl overflow-hidden shadow-lg"
+    >
+      <img
+        class="absolute top-0 object-cover h-[16rem] w-full"
+        src="{% static 'eye.jpg' %}"
+        alt=""
+      />
+      <div
+        class="absolute flex flex-col w-full rounded-3xl p-5 bg-white bottom-0"
+      >
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col">
+            <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+            <h2 class="text-xl font-bold text-[#023047]">
+              Mediterranean Fruits
+            </h2>
+          </div>
+          <div class="flex">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#FB8148"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+              />
+            </svg>
+            <span class="text-blue-300">(4.8)</span>
+          </div>
+        </div>
+        <div class="flex flex-row justify-between items-center mt-10">
+          <button
+            class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+          >
+            <svg
+              class="w-6 h-6 text-[#023047]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7 7V5"
+              />
+            </svg>
+            Add To Cart
+          </button>
+          <p class="text-3xl font-semibold text-[#023047]">$40.00</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[20rem] h-[25rem] bg-[#F6F7F8] rounded-3xl overflow-hidden shadow-lg"
+    >
+      <img
+        class="absolute top-0 object-cover h-[16rem] w-full"
+        src="{% static 'respiratory.jpg' %}"
+        alt=""
+      />
+      <div
+        class="absolute flex flex-col w-full rounded-3xl p-5 bg-white bottom-0"
+      >
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col">
+            <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+            <h2 class="text-xl font-bold text-[#023047]">
+              Mediterranean Fruits
+            </h2>
+          </div>
+          <div class="flex">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#FB8148"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+              />
+            </svg>
+            <span class="text-blue-300">(4.8)</span>
+          </div>
+        </div>
+        <div class="flex flex-row justify-between items-center mt-10">
+          <button
+            class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+          >
+            <svg
+              class="w-6 h-6 text-[#023047]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7 7V5"
+              />
+            </svg>
+            Add To Cart
+          </button>
+          <p class="text-3xl font-semibold text-[#023047]">$40.00</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[20rem] h-[25rem] bg-[#F6F7F8] rounded-3xl overflow-hidden shadow-lg"
+    >
+      <img
+        class="absolute top-0 object-cover h-[16rem] w-full"
+        src="{% static 'kidney.jpg' %}"
+        alt=""
+      />
+      <div
+        class="absolute flex flex-col w-full rounded-3xl p-5 bg-white bottom-0"
+      >
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col">
+            <h1 class="text-lg font-semibold text-blue-300">Wellness</h1>
+            <h2 class="text-xl font-bold text-[#023047]">
+              Mediterranean Fruits
+            </h2>
+          </div>
+          <div class="flex">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#FB8148"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+              />
+            </svg>
+            <span class="text-blue-300">(4.8)</span>
+          </div>
+        </div>
+        <div class="flex flex-row justify-between items-center mt-10">
+          <button
+            class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+          >
+            <svg
+              class="w-6 h-6 text-[#023047]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7 7V5"
+              />
+            </svg>
+            Add To Cart
+          </button>
+          <p class="text-3xl font-semibold text-[#023047]">$40.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials section -->
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <h2 class="text-5xl mb-10 font-black text-[#023047]">
+        What our customers<br />say about us
+    </h2>
+    
+    <div class="flex flex-wrap -m-4">
+        <div class="p-4 md:w-1/2 w-full">
+            <div class="h-full bg-[#F6F7F8] p-8 rounded">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="block w-5 h-5 text-gray-400 mb-4"
+                    viewBox="0 0 975.036 975.036"
+                >
+                    <path
+                        d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"
+                    ></path>
+                </svg>
+                <p class="leading-relaxed mb-6">
+                    I just wanted to say how impressed I am with your pharmacy delivery service. It's so convenient to order my medications online and have them delivered right to my doorstep. The timely and hassle-free delivery ensures that I receive my prescriptions without any inconvenience. Thank you for providing such excellent service!
+                </p>
+                <a class="inline-flex items-center">
+                    <img
+                        alt="testimonial"
+                        src="{% static 'liver.jpg' %}"
+                        class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+                    />
+                    <span class="flex-grow flex flex-col pl-4">
+                        <span class="title-font font-medium text-gray-900">Irumva Kennedy</span>
+                        <span class="text-gray-500 text-sm">Satisfied Customer</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="p-4 md:w-1/2 w-full">
+            <div class="h-full bg-[#F6F7F8] p-8 rounded">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="block w-5 h-5 text-gray-400 mb-4"
+                    viewBox="0 0 975.036 975.036"
+                >
+                    <path
+                        d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"
+                    ></path>
+                </svg>
+                <p class="leading-relaxed mb-6">
+                    I am extremely impressed with the dedicated team of pharmacists at this pharmacy. They handle all medications with utmost care and ensure safe delivery to their customers. I trust them completely to provide reliable and secure pharmacy delivery services for all my healthcare needs.
+                </p>
+                <a class="inline-flex items-center">
+                    <img
+                        alt="testimonial"
+                        src="{% static 'eye.jpg' %}"
+                        class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+                    />
+                    <span class="flex-grow flex flex-col pl-4">
+                        <span class="title-font font-medium text-gray-900">Munezero Trinity</span>
+                        <span class="text-gray-500 text-sm">Satisfied Customer</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
