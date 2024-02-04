@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="flex flex-col items-center justify-center">
+    <h1 class="text-4xl font-bold text-[#023047]">Your Cart</h1>
+    <div class="flex flex-col items-center justify-center mt-5">
+        <table class="w-full">
+            <thead class="bg-[#F6F7F8] text-start rounded-t-lg overflow-hidden">
+                <tr>
+                    <th class="text-lg font-semibold text-[#023047]">Product</th>
+                    <th class="text-lg font-semibold text-[#023047]">Price</th>
+                    <th class="text-lg font-semibold text-[#023047]">Quantity</th>
+                    <th class="text-lg font-semibold text-[#023047]">Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr>
+                    <td class="flex flex-row items-center px-5 py-3">
+                        <img
+                            class="w-20 h-20 object-cover rounded-lg"
+                            src="{% static 'eye.jpg' %}"
+                            alt="eye"
+                        />
+                        <div class="flex flex-col justify-start items-start ml-5">
+                            <h1 class="text-lg font-semibold text-[#023047]">
+                                Anti Aging Eye Cream
+                            </h1>
+                            <h2 class="text-lg font-semibold text-[#023047]">$36.00</h2>
+                        </div>
+                    </td>
+                    <td class="text-lg font-semibold text-[#023047] px-5 py-3">$36.00</td>
+                    <td class="text-lg font-semibold text-[#023047] px-5 py-3">1</td>
+                    <td class="text-lg font-semibold text-[#023047] px-5 py-3">$36.00</td>
+                    <td class="px-5 py-3">
+                        <button
+                            class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#023047] font-semibold hover:bg-[#F6F7F8] transition-all duration-300 ease-in"
+                        >
+                            <svg
+                                class="w-6 h-6"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M8.6 2.6A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4c0-.5.2-1 .6-1.4ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

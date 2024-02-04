@@ -1,22 +1,22 @@
 from django.db import models
 
 
-class User(models.Model):
-    TYPES_OF_USERS = [
-        ("admin", "admin"),
-        ("pharmacist", "pharmacist"),
-        ("customer", "customer"),
-        ("delivery_person", "delivery_person")
-    ]
-    username = models.CharField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    address = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=100)
-    user_type = models.CharField(max_length=100, choices=TYPES_OF_USERS)
+# class User(models.Model):
+#     TYPES_OF_USERS = [
+#         ("admin", "admin"),
+#         ("pharmacist", "pharmacist"),
+#         ("customer", "customer"),
+#         ("delivery_person", "delivery_person")
+#     ]
+#     username = models.CharField(max_length=100, unique=True)
+#     first_name = models.CharField(max_length=200)
+#     last_name = models.CharField(max_length=200)
+#     address = models.CharField(max_length=100)
+#     phone_number = models.CharField(max_length=100)
+#     user_type = models.CharField(max_length=100, choices=TYPES_OF_USERS)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
 class Pharmacy(models.Model):
@@ -50,16 +50,16 @@ class Medicine(models.Model):
         return self.name
 
 
-class Prescription(models.Model):
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-    dosage_instructions = models.TextField()
-    quantity = models.IntegerField()
-    status = models.CharField(max_length=100)
+# class Prescription(models.Model):
+#     image = models.ImageField(upload_to='images/', null=True, blank=True)
+#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
+#     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+#     dosage_instructions = models.TextField()
+#     quantity = models.IntegerField()
+#     status = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
 class Order(models.Model):
@@ -108,20 +108,20 @@ class Payment(models.Model):
         return self.name
 
 
-class Review(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-    review = models.TextField()
-    rating = models.IntegerField()
+# class Review(models.Model):
+#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
+#     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+#     review = models.TextField()
+#     rating = models.IntegerField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
-class Message(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    message = models.TextField()
-    message_date = models.DateField()
+# class Message(models.Model):
+#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
+#     message = models.TextField()
+#     message_date = models.DateField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name

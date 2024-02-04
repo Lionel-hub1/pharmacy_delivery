@@ -15,3 +15,7 @@ def signup(request):
 
 def products(request):
     return render(request, "pages/products.html")
+
+
+def cart(request):
+    return render(request, "pages/cart.html")

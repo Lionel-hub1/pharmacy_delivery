@@ -1,5 +1,5 @@
 <nav
-  class="z-10 sticky top-0 bg-[#F6F7F8] mx-5 my-3 rounded-lg px-10 py-3 flex flex-row justify-between"
+  class="z-50 sticky top-0 bg-[#F6F7F8] mx-5 my-3 rounded-lg px-10 py-3 flex flex-row justify-between"
 >
   <div class="flex flex-row">
     <!-- brand -->
@@ -205,7 +205,8 @@
       </svg>
       <span class="text-xl text-[#FE6843] font-semibold">Offers</span>
     </div>
-    <div
+    <a
+    href="{% url 'cart' %}"
       class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
     >
       <svg
@@ -240,7 +241,7 @@
         </g>
       </svg>
       <span class="text-xl text-[#16350E] font-semibold">Cart</span>
-    </div>
+    </a>
     <div
       class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
     >
