@@ -1,19 +1,34 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
-# class User(models.Model):
-#     TYPES_OF_USERS = [
-#         ("admin", "admin"),
-#         ("pharmacist", "pharmacist"),
-#         ("customer", "customer"),
-#         ("delivery_person", "delivery_person")
-#     ]
-#     username = models.CharField(max_length=100, unique=True)
-#     first_name = models.CharField(max_length=200)
-#     last_name = models.CharField(max_length=200)
-#     address = models.CharField(max_length=100)
-#     phone_number = models.CharField(max_length=100)
-#     user_type = models.CharField(max_length=100, choices=TYPES_OF_USERS)
+class User(AbstractUser):
+    username = models.CharField(max_length=100, unique=True)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    address = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+    is_pharmacist = models.BooleanField(default=False)
+    is_delivery_person = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
+
+
+# class Pharmacist(models.Model):
+#     user = models.OneToOneField(
+#         User, related_name='is_pharmacist', on_delete=models.CASCADE)
+#     pharmacy = models.ForeignKey('Pharmacy', on_delete=models.CASCADE)
+#     status = models.CharField(max_length=100, default="pending")
+
+#     def __str__(self):
+#         return self.name
+
+
+# class DeliveryPerson(models.Model):
+#     user = models.OneToOneField(
+#         User, related_name='is_delivery_person', on_delete=models.CASCADE)
+#     status = models.CharField(max_length=100, default="pending")
 
 #     def __str__(self):
 #         return self.name
@@ -50,16 +65,16 @@ class Medicine(models.Model):
         return self.name
 
 
-# class Prescription(models.Model):
-#     image = models.ImageField(upload_to='images/', null=True, blank=True)
-#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-#     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-#     dosage_instructions = models.TextField()
-#     quantity = models.IntegerField()
-#     status = models.CharField(max_length=100)
+class Prescription(models.Model):
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    dosage_instructions = models.TextField()
+    quantity = models.IntegerField()
+    status = models.CharField(max_length=100)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 
 class Order(models.Model):
@@ -68,7 +83,7 @@ class Order(models.Model):
         ("accepted", "accepted"),
         ("rejected", "rejected")
     ]
-    # customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     order_date = models.DateField()
@@ -108,20 +123,20 @@ class Payment(models.Model):
         return self.name
 
 
-# class Review(models.Model):
-#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-#     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-#     review = models.TextField()
-#     rating = models.IntegerField()
+class Review(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    review = models.TextField()
+    rating = models.IntegerField()
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 
-# class Message(models.Model):
-#     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-#     message = models.TextField()
-#     message_date = models.DateField()
+class Message(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    message_date = models.DateField()
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
