@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 class User(AbstractUser):
@@ -15,30 +16,30 @@ class User(AbstractUser):
         return self.username
 
 
-# class Pharmacist(models.Model):
-#     user = models.OneToOneField(
-#         User, related_name='is_pharmacist', on_delete=models.CASCADE)
-#     pharmacy = models.ForeignKey('Pharmacy', on_delete=models.CASCADE)
-#     status = models.CharField(max_length=100, default="pending")
+class Pharmacist(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100, default="pending")
+    legal_document = models.ImageField(upload_to='legal_docs/', null=True, blank=True)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.user.first_name
 
 
-# class DeliveryPerson(models.Model):
-#     user = models.OneToOneField(
-#         User, related_name='is_delivery_person', on_delete=models.CASCADE)
-#     status = models.CharField(max_length=100, default="pending")
+class DeliveryPerson(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100, default="pending")
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.user.first_name
 
 
 class Pharmacy(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
-    pharmacist = models.CharField(max_length=200)
+    pharmacy_manager = models.ForeignKey(Pharmacist, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -46,11 +47,9 @@ class Pharmacy(models.Model):
 
 class Medicine(models.Model):
     CATEGORIES = [
-        ("antibiotic", "antibiotic"),
-        ("antiseptic", "antiseptic"),
-        ("analgesic", "analgesic"),
-        ("antipyretic", "antipyretic"),
-        ("antifungal", "antifungal")
+        ("medicine", "medicine"),
+        ("device", "device"),
+        ("nutritional", "nutritional"),
     ]
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     name = models.CharField(max_length=100, unique=True)
@@ -60,6 +59,7 @@ class Medicine(models.Model):
     quantity = models.IntegerField()
     pharmacy = models.ForeignKey(Pharmacy, on_delete=models.CASCADE)
     form = models.CharField(max_length=100)
+    featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -67,7 +67,8 @@ class Medicine(models.Model):
 
 class Prescription(models.Model):
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     dosage_instructions = models.TextField()
     quantity = models.IntegerField()
@@ -83,7 +84,7 @@ class Order(models.Model):
         ("accepted", "accepted"),
         ("rejected", "rejected")
     ]
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     order_date = models.DateField()
@@ -97,7 +98,7 @@ class Order(models.Model):
 
 
 class Delivery(models.Model):
-    # delivery_person = models.ForeignKey(User, on_delete=models.CASCADE)
+    delivery_person = models.ForeignKey(DeliveryPerson, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     delivery_date = models.DateField()
     status = models.CharField(max_length=100)
@@ -124,7 +125,8 @@ class Payment(models.Model):
 
 
 class Review(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     review = models.TextField()
     rating = models.IntegerField()
@@ -134,9 +136,10 @@ class Review(models.Model):
 
 
 class Message(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    sender_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField()
     message_date = models.DateField()
 
     def __str__(self):
-        return self.name
+        return self.message

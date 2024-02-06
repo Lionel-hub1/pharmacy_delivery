@@ -72,6 +72,13 @@
     </button>
     <button
       class="px-4 py-1 mx-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-blue-100"
+      :class="{ 'bg-blue-100': activeTab === 'medicines' }"
+      @click="activeTab = 'medicines'"
+    >
+      medicines
+    </button>
+    <button
+      class="px-4 py-1 mx-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-blue-100"
       :class="{ 'bg-blue-100': activeTab === 'devices' }"
       @click="activeTab = 'devices'"
     >
@@ -86,24 +93,24 @@
     </button>
   </div>
 
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mx-5 my-3"
-  >
-    <!-- Tab content for 'all' -->
-    {% include 'partials/products_tabs/all.html' %}
+  <!-- Tab content for 'all' -->
+  {% include 'partials/products_tabs/all.html' %}
 
-    <!-- Tab content for 'featured' -->
-    {% include 'partials/products_tabs/featured.html' %}
+  <!-- Tab content for 'featured' -->
+  {% include 'partials/products_tabs/featured.html' %}
 
-    <!-- Tab content for 'best_deals' -->
-    {% include 'partials/products_tabs/best_deals.html' %}
+  <!-- Tab content for 'best_deals' -->
+  {% include 'partials/products_tabs/best_deals.html' %}
 
-    <!-- Tab content for 'devices' -->
-    {% include 'partials/products_tabs/devices.html' %}
+  <!-- Tab content for 'medicines' -->
+  {% include 'partials/products_tabs/medicines.html' %}
 
-    <!-- Tab content for 'nutritional' -->
-    {% include 'partials/products_tabs/nutritional.html' %}
-  </div>
+  <!-- Tab content for 'devices' -->
+  {% include 'partials/products_tabs/devices.html' %}
+
+  <!-- Tab content for 'nutritional' -->
+  {% include 'partials/products_tabs/nutritional.html' %}
+  
   <div class="flex space-x-2 w-full justify-center my-4">
     <a href="#" class="text-black px-4 py-2 border-2 border-black rounded">1</a>
     <a
