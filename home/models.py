@@ -59,7 +59,6 @@ class Medicine(models.Model):
     unit = models.CharField(max_length=100)
     quantity = models.IntegerField()
     pharmacy = models.ForeignKey(Pharmacy, on_delete=models.CASCADE)
-    form = models.CharField(max_length=100)
     featured = models.BooleanField(default=False)
 
     def __str__(self):
