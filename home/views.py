@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.views import APIView
+from .models import *
 
 
 def home(request):
@@ -15,7 +15,11 @@ def signup(request):
 
 
 def products(request):
-    return render(request, "pages/products.html")
+    context = {
+        "medicines" : Medicine.objects.all(),
+    }
+    print(context["medicines"][0])
+    return render(request, "pages/products.html", context)
 
 
 def cart(request):
