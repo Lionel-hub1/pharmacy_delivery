@@ -73,6 +73,29 @@ def logout(request):
     return redirect('login')
 
 
+def create_product(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        category = request.POST.get('category')
+        featured = request.POST.get('featured')
+        image = request.FILES.get('image')
+
+        medicine = Medicine(
+            name=name,
+            description=description,
+            price=price,
+            category=category,
+            featured=featured,
+            image=image
+        )
+        medicine.save()
+        return redirect('products')
+
+    return render(request, 'pages/create_product.html')
+
+
 def products(request):
     context = {
         "all_medicines": Medicine.objects.all(),
