@@ -13,6 +13,8 @@ admin.site.register(Delivery)
 admin.site.register(Payment)
 admin.site.register(Review)
 admin.site.register(Message)
+admin.site.register(Cart)
+admin.site.register(CartItem)
 
 
 @admin.register(User)

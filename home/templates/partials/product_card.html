@@ -39,26 +39,30 @@
       </div>
     </div>
     <div class="flex flex-row justify-between items-center mt-10">
-      <button
-        class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
-      >
-        <svg
-          class="w-6 h-6 text-[#023047]"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
+      <form action="{% url 'add_to_cart' medicine.id %}" method="POST">
+        {% csrf_token %}
+        <button
+          class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+          type="submit"
         >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 12h14m-7 7V5"
-          />
-        </svg>
-        Add To Cart
-      </button>
+          <svg
+            class="w-6 h-6 text-[#023047]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h14m-7 7V5"
+            />
+          </svg>
+          Add To Cart
+        </button>
+      </form>
       <p class="text-xl font-semibold text-[#023047]">
         {{ medicine.price }} Rwf
       </p>

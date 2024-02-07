@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 
 
 def home(request):
-    return render(request, "pages/index.html")
+    context = {"four_medicines": Medicine.objects.all()[:4]}
+    return render(request, "pages/index.html", context)
 
 
 def login(request):
@@ -54,11 +55,11 @@ def signup(request):
             user = authenticate(username=username, password=password)
         except User.DoesNotExist:
             user = None
-        
+
         if user is not None:
             auth_login(request, user)
             return redirect('home')
-        
+
         return redirect('login')
 
     if request.user.is_authenticated:
@@ -70,7 +71,7 @@ def signup(request):
 def logout(request):
     auth_logout(request)
     return redirect('login')
-    
+
 
 def products(request):
     context = {
@@ -83,8 +84,27 @@ def products(request):
     return render(request, "pages/products.html", context)
 
 
+def medicine(request, id):
+    context = {"medicine": Medicine.objects.get(id=id)}
+    return render(request, "pages/medicine.html", context)
+
+
+def add_to_cart(request, id):
+    medicine = Medicine.objects.get(id=id)
+    cart = Cart.objects.get_or_create(user=request.user)[0]
+    cart_item = CartItem.objects.get_or_create(medicine=medicine, cart=cart)[0]
+    cart_item.quantity += 1
+    cart_item.save()
+    return redirect('cart')
+
+
 def cart(request):
-    return render(request, "pages/cart.html")
+    cart = Cart.objects.get(user=request.user)
+    cart_items = CartItem.objects.filter(cart=cart)
+    context = {
+        "cart": cart,
+        "cart_items": cart_items}
+    return render(request, "pages/cart.html", context)
 
 
 def checkout(request):

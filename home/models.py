@@ -67,6 +67,23 @@ class Medicine(models.Model):
         return self.name
 
 
+class Cart(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.user.username
+
+
+class CartItem(models.Model):
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.medicine.name
+
+
 class Prescription(models.Model):
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     customer = models.ForeignKey(
