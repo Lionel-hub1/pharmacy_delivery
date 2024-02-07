@@ -49,6 +49,17 @@ def signup(request):
             password=password
         )
         user.save()
+
+        try:
+            user = authenticate(username=username, password=password)
+        except User.DoesNotExist:
+            user = None
+        
+        if user is not None:
+            auth_login(request, user)
+            return redirect('home')
+        
+
         return redirect('login')
 
     if request.user.is_authenticated:
