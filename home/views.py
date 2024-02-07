@@ -59,7 +59,6 @@ def signup(request):
             auth_login(request, user)
             return redirect('home')
         
-
         return redirect('login')
 
     if request.user.is_authenticated:
