@@ -167,7 +167,7 @@
     </div>
     {% endif %}
   </div>
-  <div class="flex flex-row space-x-5">
+  <div class="flex flex-row items-center space-x-5">
     <div class="flex flex-col">
       <span class="bg-[#FE6843] px-1 rounded-lg w-min"> New </span>
       <select
@@ -243,7 +243,58 @@
       </svg>
       <span class="text-xl text-[#16350E] font-semibold">Cart</span>
     </a>
-    <div
+    {% if user.is_authenticated %}
+      <div x-data="{ open: false }" class="relative">
+        <div @click="open = !open" class="flex flex-row items-center space-x-1 px-2 cursor-pointer">
+          <svg
+            class="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4Z"
+                stroke="#16350E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8Z"
+                stroke="#16350E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M19 19.5C18.1716 17.6716 15.6569 16 12 16C8.34315 16 5.82843 17.6716 5 19.5"
+                stroke="#16350E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          <span class="text-xl text-[#16350E] font-semibold">{{ user.username }}</span>
+        </div>
+        
+        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+          <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+        </div>
+      </div>
+    {% else %}
+    {% if request.path != "/login/" %}
+    <a
+      href="{% url 'login' %}"
       class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
     >
       <svg
@@ -269,6 +320,10 @@
         </g>
       </svg>
       <span class="text-xl text-[#16350E] font-semibold">Login</span>
+    </a>
+    {% endif %}
+    {% endif %}
     </div>
+    </nav>
   </div>
 </nav>

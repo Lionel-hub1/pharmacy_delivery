@@ -1,13 +1,77 @@
-<div
-  x-show="activeTab == 'medicines'"
-  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mx-5 my-3"
->
+{% if category_medicine %}
+<div x-show="activeTab == 'medicines'">
   <div
-    class="relative w-full h-[25rem] overflow-hidden transition-all duration-1000 ease-in"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-5 my-3"
   >
-    <!-- Product content -->
-    <p class="w-full text-center text-gray-500 mt-8">
-      No items in best medicines yet.
-    </p>
+    {% for medicine in category_medicine %}
+    {% include 'partials/product_card.html' %}
+    {% endfor %}
+  </div>
+
+  <!-- Pages -->
+  <div class="flex space-x-2 w-full justify-center my-4">
+    <a href="#" class="text-black px-4 py-2 border-2 border-black rounded">1</a>
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >2</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >3</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >4</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >5</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >6</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+      >7</a
+    >
+    <a
+      href="#"
+      class="text-gray-300 hover:text-black px-4 py-2 border-2 border-gray-300 hover:border-black rounded"
+    >
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m7 16 4-4-4-4m6 8 4-4-4-4"
+        />
+      </svg>
+    </a>
   </div>
 </div>
+
+{% else %}
+<div
+  x-show="activeTab == 'medicines'"
+  class="flex justify-center items-center h-96"
+>
+  <h1 class="text-2xl font-semibold text-gray-400">
+    There are no medicines available in stock now
+  </h1>
+</div>
+
+{% endif %}

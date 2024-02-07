@@ -1,1 +1,97 @@
- 
+{% extends "base/base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="flex items-center justify-center min-h-[60vh]">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <h2 class="w-full text-center text-2xl text-[#023047] font-bold mb-6">
+      Sign Up
+    </h2>
+    <form class="min-w-[300px]" action="{% url 'signup' %}" method="post">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username"
+          name="username"
+          type="text"
+          placeholder="Enter your username"
+        />
+      </div>
+    <div class="flex">
+        <div class="mb-4 mr-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name">
+                First Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" name="first_name" type="text" placeholder="Enter your first name" />
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="last_name">
+                Last Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name" name="last_name" type="text" placeholder="Enter your last name" />
+        </div>
+    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+          Address
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="address"
+          name="address"
+          type="text"
+          placeholder="Enter your address (District)"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="phone_number"
+        >
+          Phone Number
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="phone_number"
+          name="phone_number"
+          type="tel"
+          placeholder="Enter your phone number"
+        />
+      </div>
+    <div class="flex">
+        <div class="mb-6 mr-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Password
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="Enter your password" />
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Repeat Password
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password2" name="password2" type="password2" placeholder="Re-Enter Password" />
+        </div>
+    </div>
+      <button
+        type="submit"
+        class="w-full py-2 mt-8 mb-4 rounded-full bg-[#023047] text-gray-100 focus:outline-none"
+      >
+        Sign Up
+      </button>
+      <a
+        class="inline-block font-bold w-full text-sm text-center text-gray-500 hover:text-blue-800 mt-6"
+        href="{% url 'login' %}"
+      >
+        Already have an account?
+        <span class="text-blue-500"> Login </span>
+      </a>
+    </form>
+  </div>
+</div>
+{% endblock content %}

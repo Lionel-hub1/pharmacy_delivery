@@ -55,10 +55,12 @@ class Medicine(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=100)
     category = models.CharField(max_length=100, choices=CATEGORIES)
+    discount = models.IntegerField()
     price = models.IntegerField()
     unit = models.CharField(max_length=100)
     quantity = models.IntegerField()
     pharmacy = models.ForeignKey(Pharmacy, on_delete=models.CASCADE)
+    ratings = models.IntegerField()
     featured = models.BooleanField(default=False)
 
     def __str__(self):
