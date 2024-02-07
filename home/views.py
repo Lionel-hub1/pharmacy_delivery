@@ -80,6 +80,8 @@ def create_product(request):
         price = request.POST.get('price')
         category = request.POST.get('category')
         featured = request.POST.get('featured')
+        quantity = request.POST.get('quantity')
+        pharmacy = request.POST.get('pharmacy')
         image = request.FILES.get('image')
 
         medicine = Medicine(
@@ -88,12 +90,16 @@ def create_product(request):
             price=price,
             category=category,
             featured=featured,
+            quantity=quantity,
+            pharmacy_id=pharmacy,
             image=image
         )
         medicine.save()
+        print("Saved successfullyyyyyy")
         return redirect('products')
-
-    return render(request, 'pages/create_product.html')
+    
+    context = {"pharmacies": Pharmacy.objects.all()}
+    return render(request, 'pages/create_product.html', context)
 
 
 def products(request):

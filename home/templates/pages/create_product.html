@@ -3,68 +3,74 @@
 Create Product
 {% endblock title %}
 {% block content %}
-<div class="bg-[#F6F7F8] shadow-md rounded px-8 pt-6 pb-8 mb-4">
-  <h1 class="text-3xl font-bold text-center mb-10">Create Product</h1>
-  <form action="" enctype="multipart/form-data" class="max-w-md mx-auto">
-    <div class="mb-4 w-full flex justify-center">
-      <label for="image" class="outline-none shadow-sm border flex flex-col justify-center items-start rounded px-3 py-2 h-24 w-full cursor-pointer">
-        <span class="block text-gray-700 text-sm font-bold mb-2">Select Product Image</span>
-        <input type="file" name="image" id="image" class="flex"  />
-      </label>
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-        <input type="text" name="name" id="name" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+<div class="flex items-center justify-center min-h-[60vh]">
+  <div class="bg-[#F6F7F8] shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <h1 class="w-full text-center text-2xl text-[#023047] font-bold mb-6">Create Product</h1>
+    <form action="{% url 'create_product' %}" enctype="multipart/form-data" method="post" class="max-w-md mx-auto">
+      {% csrf_token %}
+      <div class="mb-4 w-full flex justify-center">
+        <label for="image" class="outline-none shadow-sm border flex flex-col justify-center items-start rounded px-3 py-2 h-24 w-full cursor-pointer">
+          <span class="block text-gray-700 text-sm font-bold mb-2">Select a product image here</span>
+          <input type="file" name="image" id="image" class="flex"/>
+        </label>
       </div>
-      <div>
-        <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
-        <select name="category" id="category" class="outline-none shadow-sm border rounded px-3 py-2 w-full">
-          <option value="medicine">Medicine</option>
-          <option value="device">Device</option>
-          <option value="nutritional">Nutritional</option>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+          <input type="text" name="name" id="name" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+        </div>
+        <div>
+          <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+          <select name="category" id="category" class="outline-none shadow-sm border rounded px-3 py-2 w-full">
+            <option value="medicine">Medicine</option>
+            <option value="device">Device</option>
+            <option value="nutritional">Nutritional</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" class="outline-none shadow-sm border rounded px-3 py-2 w-full"></textarea>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="discount" class="block text-gray-700 text-sm font-bold mb-2">Discount</label>
+          <input type="number" name="discount" id="discount" class="outline-none shadow-sm border rounded px-3 py-2 w-full" value="0" />
+        </div>
+        <div>
+          <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
+          <input type="number" name="price" id="price" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="unit" class="block text-gray-700 text-sm font-bold mb-2">Unit</label>
+          <input type="text" name="unit" id="unit" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+        </div>
+        <div>
+          <label for="quantity" class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
+          <input type="number" name="quantity" id="quantity" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="pharmacy" class="block text-gray-700 text-sm font-bold mb-2">Pharmacy</label>
+        <select name="pharmacy" id="pharmacy" class="outline-none shadow-sm border rounded px-3 py-2 w-full">
+          <option value="">Select a pharmacy</option>
+          {% for pharmacy in pharmacies %}
+            <option value="{{ pharmacy.id }}">{{ pharmacy.name }}</option>
+          {% endfor %}
         </select>
       </div>
-    </div>
-    <div class="mb-4">
-      <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-      <textarea name="description" id="description" cols="30" rows="10" class="outline-none shadow-sm border rounded px-3 py-2 w-full"></textarea>
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label for="discount" class="block text-gray-700 text-sm font-bold mb-2">Discount</label>
-        <input type="number" name="discount" id="discount" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+      <div class="mb-4">
+        <input type="checkbox" name="featured" id="featured" class="mr-2" value="True" />
+        <label for="featured">Featured</label>
       </div>
-      <div>
-        <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
-        <input type="number" name="price" id="price" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
+      <div class="flex justify-center mt-4 mb-10">
+        <button type="submit" class="w-full py-2 mt-8 mb-4 rounded-full bg-[#023047] text-gray-100 focus:outline-none">
+          Submit
+        </button>
       </div>
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label for="unit" class="block text-gray-700 text-sm font-bold mb-2">Unit</label>
-        <input type="text" name="unit" id="unit" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
-      </div>
-      <div>
-        <label for="quantity" class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
-        <input type="number" name="quantity" id="quantity" class="outline-none shadow-sm border rounded px-3 py-2 w-full" />
-      </div>
-    </div>
-    <div class="mb-4">
-      <label for="pharmacy" class="block text-gray-700 text-sm font-bold mb-2">Pharmacy</label>
-      <select name="pharmacy" id="pharmacy" class="outline-none shadow-sm border rounded px-3 py-2 w-full">
-        <option value="1">My Pharmacy</option>
-      </select>
-    </div>
-    <div class="mb-4">
-      <input type="checkbox" name="featured" id="featured" class="mr-2" />
-      <label for="featured">Featured</label>
-    </div>
-    <div class="flex justify-center mt-4 mb-10">
-      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-        Submit
-      </button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 {% endblock content %}

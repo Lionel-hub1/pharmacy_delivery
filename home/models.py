@@ -20,7 +20,8 @@ class Pharmacist(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     status = models.CharField(max_length=100, default="pending")
-    legal_document = models.ImageField(upload_to='legal_docs/', null=True, blank=True)
+    legal_document = models.ImageField(
+        upload_to='legal_docs/', null=True, blank=True)
 
     def __str__(self):
         return self.user.first_name
@@ -55,13 +56,13 @@ class Medicine(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=100)
     category = models.CharField(max_length=100, choices=CATEGORIES)
-    discount = models.IntegerField()
+    discount = models.IntegerField(default=0, null=True, blank=True)
     price = models.IntegerField()
     unit = models.CharField(max_length=100)
     quantity = models.IntegerField()
     pharmacy = models.ForeignKey(Pharmacy, on_delete=models.CASCADE)
-    ratings = models.IntegerField()
-    featured = models.BooleanField(default=False)
+    ratings = models.IntegerField(default=0, null=True, blank=True)
+    featured = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -103,7 +104,8 @@ class Order(models.Model):
         ("accepted", "accepted"),
         ("rejected", "rejected")
     ]
-    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     order_date = models.DateField()
@@ -117,7 +119,8 @@ class Order(models.Model):
 
 
 class Delivery(models.Model):
-    delivery_person = models.ForeignKey(DeliveryPerson, on_delete=models.CASCADE)
+    delivery_person = models.ForeignKey(
+        DeliveryPerson, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     delivery_date = models.DateField()
     status = models.CharField(max_length=100)
