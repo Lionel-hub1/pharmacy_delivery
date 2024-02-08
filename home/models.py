@@ -53,7 +53,7 @@ class Medicine(models.Model):
         ("nutritional", "nutritional"),
     ]
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     category = models.CharField(max_length=100, choices=CATEGORIES)
     discount = models.IntegerField(default=0, null=True, blank=True)

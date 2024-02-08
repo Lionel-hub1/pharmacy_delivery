@@ -97,9 +97,54 @@ def create_product(request):
         medicine.save()
         print("Saved successfullyyyyyy")
         return redirect('products')
-    
+
     context = {"pharmacies": Pharmacy.objects.all()}
     return render(request, 'pages/create_product.html', context)
+
+
+def update_product(request, id):
+    if request.method == 'PUT':
+        try:
+            try:
+                medicine = Medicine.objects.get(id=id)
+                medicine.name = request.POST.get('name')
+                medicine.description = request.POST.get('description')
+                medicine.price = request.POST.get('price')
+                medicine.category = request.POST.get('category')
+                medicine.featured = request.POST.get('featured')
+                medicine.quantity = request.POST.get('quantity')
+                medicine.pharmacy = request.POST.get('pharmacy')
+                medicine.image = request.FILES.get('image')
+                medicine.save()
+                print("Medicine updated successfully")
+            except Medicine.DoesNotExist:
+                print("Medicine does not exist")
+        except Medicine.DoesNotExist:
+            print("Medicine does not exist")
+        return redirect('products')
+    
+    context = {
+        "medicine": Medicine.objects.get(id=id),
+        "pharmacies": Pharmacy.objects.all()
+    }
+    return render(request, 'pages/update_product.html', context)
+
+
+def create_pharmacy(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        address = request.POST.get('address')
+        phone_number = request.POST.get('phone_number')
+
+        pharmacy = Pharmacy(
+            name=name,
+            address=address,
+            phone_number=phone_number
+        )
+        pharmacy.save()
+        return redirect('products')
+
+    return render(request, 'pages/create_pharmacy.html')
 
 
 def products(request):
