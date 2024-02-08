@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from .models import *
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -73,6 +73,7 @@ def logout(request):
     return redirect('login')
 
 
+@login_required(login_url='login')
 def create_product(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -102,6 +103,7 @@ def create_product(request):
     return render(request, 'pages/create_product.html', context)
 
 
+@login_required(login_url='login')
 def update_product(request, id):
     if request.method == 'PUT':
         try:
@@ -130,6 +132,7 @@ def update_product(request, id):
     return render(request, 'pages/update_product.html', context)
 
 
+@login_required(login_url='login')
 def create_pharmacy(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -163,6 +166,7 @@ def medicine(request, id):
     return render(request, "pages/medicine.html", context)
 
 
+@login_required(login_url='login')
 def add_to_cart(request, id):
     if request.method == 'POST':
         medicine = Medicine.objects.get(id=id)
@@ -175,12 +179,14 @@ def add_to_cart(request, id):
         return redirect('products')
 
 
+@login_required(login_url='login')
 def cart(request):
     cart = Cart.objects.get(user=request.user)
     cart_items = CartItem.objects.filter(cart=cart)
     context = {
         "cart": cart,
-        "cart_items": cart_items}
+        "cart_items": cart_items
+    }
     return render(request, "pages/cart.html", context)
 
 
