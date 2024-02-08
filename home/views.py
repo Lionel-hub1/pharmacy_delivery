@@ -162,7 +162,13 @@ def products(request):
 
 
 def medicine(request, id):
-    context = {"medicine": Medicine.objects.get(id=id)}
+    medicine = Medicine.objects.get(id=id)
+    cart = Cart.objects.get(user=request.user)
+    cart_item = CartItem.objects.get(medicine=medicine, cart=cart)
+    context = {
+        "medicine": medicine,
+        "cart_item": cart_item
+    }
     return render(request, "pages/medicine.html", context)
 
 

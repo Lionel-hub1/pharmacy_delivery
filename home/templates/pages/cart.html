@@ -12,6 +12,7 @@ Page{%endblock %} {% block content %}
           <th class="text-lg font-semibold text-[#023047]">Quantity</th>
           <th class="text-lg font-semibold text-[#023047]">Total</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
@@ -40,6 +41,29 @@ Page{%endblock %} {% block content %}
           </td>
           <td class="text-lg font-semibold text-[#023047] px-5 py-3">
             Rwf {% widthratio item.medicine.price 1 item.quantity %}
+          </td>
+          <td>
+            <a href="{% url 'medicine' item.medicine.id %}">
+              <button
+                class="p-2 rounded-lg text-[#023047] font-semibold hover:bg-[#F6F7F8]"
+              >
+                <svg
+                  class="w-6 h-6"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m14.3 4.8 2.9 2.9M7 7H4a1 1 0 0 0-1 1v10c0 .6.4 1 1 1h11c.6 0 1-.4 1-1v-4.5m2.4-10a2 2 0 0 1 0 3l-6.8 6.8L8 14l.7-3.6 6.9-6.8a2 2 0 0 1 2.8 0Z"
+                  />
+                </svg>
+              </button>
+            </a>
           </td>
           <td class="px-5 py-3">
             <button
@@ -70,8 +94,6 @@ Page{%endblock %} {% block content %}
   <div class="flex justify-center items-center h-96">
     <div class="flex flex-col items-center">
       <h1 class="text-2xl font-semibold text-gray-400">Your cart is empty</h1>
-      {% comment %} Add a button that leads the user to the products page to add
-      some products {% endcomment %}
       <a
         href="{% url 'products' %}"
         class="mt-4 shadow-md flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#023047] bg-[#F6F7F8] font-semibold hover:bg-[#F6F7F8] transition-all duration-300 ease-in"
@@ -83,4 +105,4 @@ Page{%endblock %} {% block content %}
   {% endif %}
 </div>
 
-{% endblock %} 
+{% endblock %}

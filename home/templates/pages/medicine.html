@@ -84,7 +84,7 @@
                   type="number"
                   name="quantity"
                   id="quantity"
-                  value="1"
+                  value="{% if cart_item %}{{ cart_item.quantity }}{% else %}1{% endif %}"
                   min="1"
                   max="{{ medicine.quantity }}"
                 />
