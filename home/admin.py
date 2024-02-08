@@ -18,7 +18,7 @@ admin.site.register(CartItem)
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     list_display = ("username", "first_name", "last_name", "address",
-                    "phone_number", "is_pharmacist", "is_delivery_person", "is_staff", "is_active")
+                    "phone_number", "is_pharmacist", "is_delivery_person", "is_staff", "is_active", "last_login")
     search_fields = ("username", "first_name", "last_name",
                      "address", "phone_number")
     list_editable = ("is_staff", "is_pharmacist",

@@ -206,6 +206,7 @@
       </svg>
       <span class="text-xl text-[#FE6843] font-semibold">Offers</span>
     </div>
+    {% if request.path != '/cart/' %}
     <a
     href="{% url 'cart' %}"
       class="flex flex-row items-center hover:cursor-pointer hover:bg-[#16350E] hover:bg-opacity-5 hover:rounded-lg"
@@ -243,6 +244,7 @@
       </svg>
       <span class="text-xl text-[#16350E] font-semibold">Cart</span>
     </a>
+    {% endif %}
     {% if user.is_authenticated %}
       <div x-data="{ open: false }" class="relative">
         <div @click="open = !open" class="flex flex-row items-center space-x-1 px-2 cursor-pointer">

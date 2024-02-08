@@ -2,11 +2,11 @@
 {% block content %}
 
 <section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
+  <div class="container px-5 py-12 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <img
         alt="ecommerce"
-        class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+        class="lg:w-1/2 w-full lg:h-auto max-h-[42rem] object-cover object-center rounded"
         src="{{ medicine.image.url }}"
       />
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -72,9 +72,9 @@
           >
             <div class="flex items-center">
               <span class="mr-3">Unit</span>
-              <span class="title-font font-medium text-2xl text-gray-900"
-                >{{ medicine.unit }}</span
-              >
+              <span class="title-font font-medium text-2xl text-gray-900">
+                {{ medicine.unit }}
+              </span>
             </div>
             <div class="flex ml-6 items-center">
               <span class="mr-3">Quantity</span>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="flex justify-between items-center">
-            <span class="title-font font-medium text-2xl text-gray-900">
+            <span class="title-font font-semibold text-2xl text-gray-900">
               {{ medicine.price }} Rwf
             </span>
 

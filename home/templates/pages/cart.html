@@ -1,5 +1,6 @@
-{% extends "base/base.html" %} {% load static %} {% block title %}Cart
-Page{%endblock %} {% block content %}
+{% extends "base/base.html" %} {% load static %} {% block title %}Your
+Cart{%endblock %} {% block content %}
+
 <div class="flex flex-col items-center justify-center">
   <h1 class="text-4xl font-bold text-[#023047]">Your Cart</h1>
   {% if cart_items %}
@@ -91,6 +92,7 @@ Page{%endblock %} {% block content %}
       </tbody>
     </table>
   </div>
+  <div class="h-[29vh]"></div>
   {% else %}
   <div class="flex justify-center items-center h-96">
     <div class="flex flex-col items-center">

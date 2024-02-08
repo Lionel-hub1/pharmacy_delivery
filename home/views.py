@@ -125,7 +125,7 @@ def update_product(request, id):
         except Medicine.DoesNotExist:
             print("Medicine does not exist")
         return redirect('products')
-    
+
     context = {
         "medicine": Medicine.objects.get(id=id),
         "pharmacies": Pharmacy.objects.all()
@@ -182,7 +182,8 @@ def add_to_cart(request, id):
     if request.method == 'POST':
         medicine = Medicine.objects.get(id=id)
         cart = Cart.objects.get_or_create(user=request.user)[0]
-        cart_item = CartItem.objects.get_or_create(medicine=medicine, cart=cart)[0]
+        cart_item = CartItem.objects.get_or_create(
+            medicine=medicine, cart=cart)[0]
         cart_item.quantity = request.POST.get('quantity')
         cart_item.save()
         return redirect('cart')
@@ -202,9 +203,13 @@ def remove_from_cart(request, id):
 def cart(request):
     cart = Cart.objects.get(user=request.user)
     cart_items = CartItem.objects.filter(cart=cart)
+    total_amount = 0
+    cart_items = CartItem.objects.filter(cart=cart)
+    for item in cart_items:
+        total_amount += item.medicine.price * item.quantity
     context = {
         "cart": cart,
-        "cart_items": cart_items
+        "cart_items": cart_items,
     }
     return render(request, "pages/cart.html", context)
 
