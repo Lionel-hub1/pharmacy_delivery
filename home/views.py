@@ -164,12 +164,15 @@ def medicine(request, id):
 
 
 def add_to_cart(request, id):
-    medicine = Medicine.objects.get(id=id)
-    cart = Cart.objects.get_or_create(user=request.user)[0]
-    cart_item = CartItem.objects.get_or_create(medicine=medicine, cart=cart)[0]
-    cart_item.quantity += 1
-    cart_item.save()
-    return redirect('cart')
+    if request.method == 'POST':
+        medicine = Medicine.objects.get(id=id)
+        cart = Cart.objects.get_or_create(user=request.user)[0]
+        cart_item = CartItem.objects.get_or_create(medicine=medicine, cart=cart)[0]
+        cart_item.quantity = request.POST.get('quantity')
+        cart_item.save()
+        return redirect('cart')
+    else:
+        return redirect('products')
 
 
 def cart(request):

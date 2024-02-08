@@ -1,1 +1,127 @@
- 
+{% extends 'base/base.html' %} {% block title %} Product details{% endblock %}
+{% block content %}
+
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <img
+        alt="ecommerce"
+        class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+        src="{{ medicine.image.url }}"
+      />
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+          {{ medicine.category }}
+        </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+          {{ medicine.name }}
+        </h1>
+        <div class="flex mb-4">
+          <span class="flex items-center">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#FB8148"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+              />
+            </svg>
+            {% if medicine.ratings != 0 %}
+            <span class="text-blue-300">({{ medicine.ratings }})</span>
+            {% else %}
+            <span class="text-blue-300">( - )</span>
+            {% endif %} {% if medicine.reviews == 0 or medicine.reviews is none or medicine.reviews is not number %}
+            <span class="text-gray-600 ml-3">No reviews yet</span>
+            {% elif medicine.reviews == 1 %}
+            <span class="text-gray-600 ml-3">1 Review</span>
+            {% else %}
+            <span class="text-gray-600 ml-3"
+              >{{ medicine.reviews }} Reviews</span
+            >
+            {% endif %}
+          </span>
+          <span
+            class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s"
+          >
+            <a href="#" class="text-gray-500">
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="m8 10.9 7-3.2m-7 5.4 7 3.2M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                />
+              </svg>
+            </a>
+          </span>
+        </div>
+        <p class="leading-relaxed">{{ medicine.description }}</p>
+        <form action="{% url 'add_to_cart' medicine.id %}" method="POST">
+          {% csrf_token %}
+          <div
+            class="flex flex-row mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"
+          >
+            <div class="flex items-center">
+              <span class="mr-3">Unit</span>
+              <span class="title-font font-medium text-2xl text-gray-900"
+                >{{ medicine.unit }}</span
+              >
+            </div>
+            <div class="flex ml-6 items-center">
+              <span class="mr-3">Quantity</span>
+              <div class="relative">
+                <input
+                  class="max-w-[5rem] rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3"
+                  type="number"
+                  name="quantity"
+                  id="quantity"
+                  value="1"
+                  min="1"
+                  max="{{ medicine.quantity }}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="title-font font-medium text-2xl text-gray-900">
+              {{ medicine.price }} Rwf
+            </span>
+
+            <button
+              class="flex border border-[#023047] border-2 px-4 py-2 rounded-full text-[#023047] font-semibold"
+              type="submit"
+            >
+              <svg
+                class="w-6 h-6 text-[#023047]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7 7V5"
+                />
+              </svg>
+              Add To Cart
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

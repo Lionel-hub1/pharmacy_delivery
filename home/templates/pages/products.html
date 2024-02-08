@@ -1,7 +1,4 @@
-{% extends "base/base.html" %}
-{% load static %}
-{% block title %}Products{% endblock %}
-{% block content %}
+{% extends "base/base.html" %} {% load static %} {% block title %}Products{% endblock %} {% block content %}
 <div class="flex flex-row justify-between items-center mx-5 mt-3 mb-0">
   <a
     class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#023047] font-semibold hover:bg-[#F6F7F8] transition-all duration-300 ease-in"
@@ -26,6 +23,7 @@
   </a>
   <h1 class="text-4xl font-bold text-[#023047]">Our Products</h1>
   <button>
+    {% if user.is_pharmacist or user.is_staff %}
     <a
       class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#023047] font-semibold hover:bg-[#F6F7F8] transition-all duration-300 ease-in"
       href="{% url 'create_product' %}"
@@ -43,6 +41,7 @@
         />
       </svg>
     </a>
+    {% endif %}
   </button>
 </div>
 <!-- Above products tabs -->
@@ -110,8 +109,6 @@
 
   <!-- Tab content for 'nutritional' -->
   {% include 'partials/products_tabs/nutritional.html' %}
-  
-  
 </div>
 
 <!-- <div
