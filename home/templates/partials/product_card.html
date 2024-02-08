@@ -12,7 +12,7 @@
   >
     {{ medicine.discount }}% off
   </span>
-  {% endif %}
+  {% endif %} {% if user.is_pharmacist or user.is_staff %}
   <a
     href="{% url 'update_product' medicine.id %}"
     class="absolute top-5 left-5 bg-black bg-opacity-30 rounded-lg"
@@ -32,6 +32,7 @@
       />
     </svg>
   </a>
+  {% endif %}
   <div class="absolute flex flex-col w-full rounded-3xl p-5 bg-white bottom-0">
     <div class="flex flex-row justify-between">
       <div class="flex flex-col">

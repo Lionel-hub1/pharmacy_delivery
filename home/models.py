@@ -17,9 +17,14 @@ class User(AbstractUser):
 
 
 class Pharmacist(models.Model):
+    STATUS_CHOICES = [
+        ("pending", "Pending"),
+        ("approved", "Approved"),
+        ("denied", "Denied"),
+    ]
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    status = models.CharField(max_length=100, default="pending")
+    status = models.CharField(max_length=100, choices=STATUS_CHOICES, default="pending")
     legal_document = models.ImageField(
         upload_to='legal_docs/', null=True, blank=True)
 
