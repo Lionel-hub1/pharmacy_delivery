@@ -2,6 +2,7 @@ from .models import *
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def home(request):
@@ -162,9 +163,13 @@ def products(request):
 
 
 def medicine(request, id):
-    medicine = Medicine.objects.get(id=id)
-    cart = Cart.objects.get(user=request.user)
-    cart_item = CartItem.objects.get(medicine=medicine, cart=cart)
+    try:
+        medicine = Medicine.objects.get(id=id)
+        cart = Cart.objects.get(user=request.user)
+        cart_item = CartItem.objects.get(medicine=medicine, cart=cart)
+    except CartItem.DoesNotExist:
+        cart_item = None
+
     context = {
         "medicine": medicine,
         "cart_item": cart_item
@@ -183,6 +188,14 @@ def add_to_cart(request, id):
         return redirect('cart')
     else:
         return redirect('products')
+
+
+def remove_from_cart(request, id):
+    cart = Cart.objects.get(user=request.user)
+    cart_item = CartItem.objects.get(medicine_id=id, cart=cart)
+    cart_item.delete()
+    messages.success(request, 'Item successfully deleted from cart.')
+    return redirect('cart')
 
 
 @login_required(login_url='login')
