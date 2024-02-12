@@ -6,11 +6,13 @@ from django.contrib import messages
 
 
 def home(request):
+    """This function renders home page with its context."""
     context = {"four_medicines": Medicine.objects.all()[:4]}
     return render(request, "pages/index.html", context)
 
 
 def login(request):
+    """This function manages how users authenticate."""
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -34,6 +36,7 @@ def login(request):
 
 
 def signup(request):
+    """This function manages how user create accounts."""
     if request.method == 'POST':
         username = request.POST.get('username')
         first_name = request.POST.get('first_name')
@@ -70,12 +73,14 @@ def signup(request):
 
 
 def logout(request):
+    """When this function is called it ends the session."""
     auth_logout(request)
     return redirect('login')
 
 
 @login_required(login_url='login')
 def create_product(request):
+    """This function manages how pharmacists create phramaceutical products."""
     if request.method == 'POST':
         name = request.POST.get('name')
         description = request.POST.get('description')
@@ -106,6 +111,7 @@ def create_product(request):
 
 @login_required(login_url='login')
 def update_product(request, id):
+    """This function manages how pharmacists update their products."""
     if request.method == 'PUT':
         try:
             try:
@@ -135,6 +141,7 @@ def update_product(request, id):
 
 @login_required(login_url='login')
 def create_pharmacy(request):
+    """This function manages how pharmacists create their phramacies."""
     if request.method == 'POST':
         name = request.POST.get('name')
         address = request.POST.get('address')
@@ -152,6 +159,7 @@ def create_pharmacy(request):
 
 
 def products(request):
+    """This function renders the products page and it's context."""
     context = {
         "all_medicines": Medicine.objects.all(),
         "category_medicine": Medicine.objects.filter(category="medicine"),
@@ -163,6 +171,7 @@ def products(request):
 
 
 def medicine(request, id):
+    """This function renders the medicine details page, and its context."""
     try:
         medicine = Medicine.objects.get(id=id)
         cart = Cart.objects.get(user=request.user)
@@ -179,6 +188,7 @@ def medicine(request, id):
 
 @login_required(login_url='login')
 def add_to_cart(request, id):
+    """This function manages how products are added to cart."""
     if request.method == 'POST':
         medicine = Medicine.objects.get(id=id)
         cart = Cart.objects.get_or_create(user=request.user)[0]
@@ -192,6 +202,7 @@ def add_to_cart(request, id):
 
 
 def remove_from_cart(request, id):
+    """This function manages the removal of the cart item."""
     cart = Cart.objects.get(user=request.user)
     cart_item = CartItem.objects.get(medicine_id=id, cart=cart)
     cart_item.delete()
@@ -201,6 +212,7 @@ def remove_from_cart(request, id):
 
 @login_required(login_url='login')
 def cart(request):
+    """This function renders the cart page and its context."""
     cart = Cart.objects.get(user=request.user)
     cart_items = CartItem.objects.filter(cart=cart)
     total_amount = 0
@@ -215,4 +227,5 @@ def cart(request):
 
 
 def checkout(request):
+    """This function manages how te checkout is done."""
     return render(request, "pages/checkout.html")
