@@ -6,7 +6,7 @@ Create Product
 <div class="flex items-center justify-center min-h-[60vh]">
   <div class="bg-[#F6F7F8] shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <h1 class="w-full text-center text-2xl text-[#023047] font-bold mb-6">Update Product</h1>
-    <form action="{% url 'create_product' %}" enctype="multipart/form-data" method="post" class="max-w-md mx-auto">
+    <form action="{% url 'update_product' medicine.id %}" enctype="multipart/form-data" method="PUT" class="max-w-md mx-auto">
       {% csrf_token %}
       <div class="mb-4 w-full flex justify-center">
         <label for="image" class="outline-none shadow-sm border flex flex-col justify-center items-start rounded px-3 py-2 h-24 w-full cursor-pointer">

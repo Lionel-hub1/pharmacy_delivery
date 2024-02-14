@@ -113,23 +113,22 @@ def create_product(request):
 def update_product(request, id):
     """This function manages how pharmacists update their products."""
     if request.method == 'PUT':
+        print("PUT method called")
         try:
-            try:
-                medicine = Medicine.objects.get(id=id)
-                medicine.name = request.POST.get('name')
-                medicine.description = request.POST.get('description')
-                medicine.price = request.POST.get('price')
-                medicine.category = request.POST.get('category')
-                medicine.featured = request.POST.get('featured')
-                medicine.quantity = request.POST.get('quantity')
-                medicine.pharmacy = request.POST.get('pharmacy')
-                medicine.image = request.FILES.get('image')
-                medicine.save()
-                print("Medicine updated successfully")
-            except Medicine.DoesNotExist:
-                print("Medicine does not exist")
+            medicine = Medicine.objects.get(id=id)
+            medicine.name = request.POST.get('name')
+            medicine.description = request.POST.get('description')
+            medicine.price = request.POST.get('price')
+            medicine.category = request.POST.get('category')
+            medicine.featured = request.POST.get('featured')
+            medicine.quantity = request.POST.get('quantity')
+            medicine.pharmacy = request.POST.get('pharmacy')
+            medicine.image = request.FILES.get('image')
+            medicine.save()
+            return redirect('products')
+            print("Medicine updated successfully")
         except Medicine.DoesNotExist:
-            print("Medicine does not exist")
+            return print("Medicine does not exist")
         return redirect('products')
 
     context = {
